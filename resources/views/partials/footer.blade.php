@@ -30,12 +30,10 @@
             </div>
 
             <div class="footer-nav">
-                <h5 class="footer-heading">{{ __('Services') }}</h5>
+                <h5 class="footer-heading">{{ __('Legalitas & Cabang') }}</h5>
                 <ul class="footer-list">
-                    <li><a href="{{ route('services') }}#komputer">{{ __('Komputer & Server') }}</a></li>
-                    <li><a href="{{ route('services') }}#software">{{ __('Software & Perangkat Lunak') }}</a></li>
-                    <li><a href="{{ route('services') }}#recording">{{ __('Electronic Security') }}</a></li>
-                    <li><a href="{{ route('services') }}#meubelair">{{ __('Smart Class System') }}</a></li>
+                    <li><a href="{{ route('certification') }}">{{ __('Legalitas & Sertifikasi') }}</a></li>
+                    <li><a href="{{ route('cabang') }}">{{ __('Kantor Cabang') }}</a></li>
                 </ul>
             </div>
 
@@ -49,18 +47,19 @@
                      Hotline: (024) 8508899 / 8505363
                 </div>
                 <div style="font-size: 0.9rem; color: var(--primary); font-weight: 600;">
-                    Email: admin@solusiaryaprima.co.id
+                    Email: solusiaryaprima@premmiere.co.id
                 </div>
             </div>
         </div>
 
         <div class="footer-bottom-bar">
             <div class="footer-copy">
-                &copy; {{ date('Y') }} CV Solusi Arya Prima. All rights reserved.
+                <div>&copy; 2024 CV Solusi Arya Prima. Semua hak dilindungi.</div>
+                <div style="margin-top: 10px; font-size: 0.85rem; opacity: 0.8;">
+                    Perusahaan Terdaftar: NPWP 01.960.937.9-511.000 | NIB 0220200162414
+                </div>
             </div>
             <div class="footer-legal">
-                <a href="#" style="color: #64748b; text-decoration: none; margin-left: 20px; font-size: 0.85rem;">Privacy Policy</a>
-                <a href="#" style="color: #64748b; text-decoration: none; margin-left: 20px; font-size: 0.85rem;">Terms of Service</a>
             </div>
         </div>
     </div>

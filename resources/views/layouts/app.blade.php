@@ -68,15 +68,6 @@
                     nav.classList.remove('scrolled');
                 }
 
-                // Hide/Show logic
-                if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                    // Scrolling down
-                    nav.classList.add('navbar--hidden');
-                } else {
-                    // Scrolling up
-                    nav.classList.remove('navbar--hidden');
-                }
-
                 lastScrollY = currentScrollY;
             });
 

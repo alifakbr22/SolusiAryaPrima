@@ -65,11 +65,9 @@
             </div>
 
             <!-- Map -->
-            <div class="bento-card fade-scroll" style="padding: 12px; height: 400px; grid-column: span 2; background: white;">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.034731215112!2d110.40620617574044!3d-7.005391268615024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b792404e571%3A0xe744e45d1ec25d1e!2sCV.%20Solusi%20Arya%20Prima!5e0!3m2!1sen!2sid!4v1740460000000!5m2!1sen!2sid" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.0!2d110.413294!3d-7.005702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b6fb3bddd77%3A0xb199b012abeed485!2sSolusi%20Arya%20Prima%20(Premmiere%20Store)!5e0!3m2!1sen!2sid!4v1740474600000!5m2!1sen!2sid" 
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
 
             <!-- Emergency -->
             <div class="bento-card fade-scroll" style="grid-column: span 3; border-top: 4px solid var(--primary); background: white;">
@@ -80,7 +78,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="font-size: 1.5rem; font-weight: 800; color: var(--primary);">0821-3763-9224</div>
-                        <div style="font-size: 0.8rem; color: var(--slate-500); font-weight: 600;">ADMIN@SOLUSIARYAPRIMA.CO.ID</div>
+                        <div style="font-size: 0.8rem; color: var(--slate-500); font-weight: 600;">SOLUSIARYAPRIMA@PREMMIERE.CO.ID</div>
                     </div>
                 </div>
             </div>
