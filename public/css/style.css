@@ -100,7 +100,7 @@ h6 {
 }
 
 .section {
-    padding: 120px 0;
+    padding: 40px 0;
     position: relative;
 }
 
@@ -124,10 +124,10 @@ h6 {
     transform: translateX(-50%);
     width: 95%;
     max-width: 1200px;
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(241, 245, 249, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 100px;
     z-index: 1000;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -183,10 +183,7 @@ h6 {
 
 .navbar.scrolled {
     padding: 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: 992px) {
@@ -213,56 +210,32 @@ h6 {
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: 0;
+    transition: all 0.3s ease;
 }
 
-.logo-icon {
-    width: 42px;
-    height: 42px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 800;
-    font-size: 1.4rem;
-    position: relative;
-    box-shadow: 0 0 15px var(--primary-glow);
+.logo-image {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
+.logo:hover .logo-image {
+    transform: scale(1.05);
 }
 
-.logo-accent {
-    font-size: 0.85rem;
-    font-weight: 900;
-    color: var(--primary);
-    letter-spacing: 3px;
-    margin-bottom: 2px;
+.logo-image-footer {
+    height: 65px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    /* Default to white for dark footer, or remove if logo has own colors */
 }
 
-.logo-main {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--slate-900);
-    letter-spacing: -0.5px;
-}
-
-.navbar.scrolled .logo-text strong {
-    color: var(--slate-900);
-}
-
-.mono {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    color: var(--slate-400);
-    margin-top: 4px;
-    opacity: 0.8;
+@keyframes shimmer-text {
+    to {
+        background-position: 200% center;
+    }
 }
 
 .nav-menu {
@@ -275,7 +248,7 @@ h6 {
 .nav-menu a,
 .nav-link {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--slate-700);
     font-weight: 600;
     font-size: 0.95rem;
     padding: 8px 16px;
@@ -300,7 +273,7 @@ h6 {
     position: relative;
 }
 
-/* BUTTON ANIMATIONS */
+/* REFACTORED BUTTON SYSTEM */
 .btn {
     position: relative;
     display: inline-flex;
@@ -310,11 +283,12 @@ h6 {
     border-radius: 12px;
     font-weight: 700;
     font-size: 0.95rem;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: none !important;
     overflow: hidden;
     gap: 10px;
+    border: 2px solid transparent;
     z-index: 1;
 }
 
@@ -325,31 +299,74 @@ h6 {
 
 .btn:active {
     transform: translateY(-2px) scale(0.96);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Primary Button: Solid Red */
+.btn-primary,
 .btn-solid {
     background: var(--primary);
-    color: white;
-    border: 2px solid var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(238, 46, 36, 0.2);
 }
 
+.btn-primary:hover,
 .btn-solid:hover {
     background: #d32f2f;
     border-color: #d32f2f;
-    color: white !important;
+    color: var(--white);
 }
 
+/* Outline Button: Red Border */
 .btn-outline {
-    background: transparent;
-    color: var(--slate-700);
-    border: 2px solid var(--slate-200);
+    background: rgba(238, 46, 36, 0.02);
+    color: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn-outline:hover {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 12px 24px rgba(238, 46, 36, 0.2);
+}
+
+/* White Button: Solid White with Red Text */
+.btn-white {
+    background: var(--white);
+    color: var(--primary);
     border-color: var(--primary);
-    color: var(--primary) !important;
-    background: rgba(238, 46, 36, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.btn-white:hover {
+    background: var(--slate-50);
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Light Outline Button: White Border for Dark/Red Backgrounds */
+.btn-light-outline {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.btn-light-outline:hover {
+    background: var(--white);
+    color: var(--primary);
+}
+
+/* Active State Force High Contrast */
+.btn-primary:active,
+.btn-solid:active,
+.btn-outline:active,
+.btn-white:active,
+.btn-light-outline:active {
+    background: #b71c1c !important;
+    color: white !important;
+    border-color: #b71c1c !important;
 }
 
 .caret {
@@ -489,18 +506,22 @@ h6 {
     gap: 8px;
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--slate-500);
+    color: var(--slate-600);
 }
 
 .lang-switcher a {
     text-decoration: none;
     color: inherit;
-    transition: color 0.2s;
+    transition: all 0.2s;
+}
+
+.lang-switcher a:hover {
+    color: var(--primary);
 }
 
 .lang-switcher a.active {
-    color: var(--white);
-    font-weight: 700;
+    color: var(--primary);
+    font-weight: 800;
 }
 
 .lang-switcher span {
@@ -602,36 +623,17 @@ h6 {
 .btn-solid {
     background: var(--primary);
     color: var(--white);
-    box-shadow: 0 10px 20px -5px var(--primary-glow);
+    box-shadow: 0 10px 20px -5px rgba(238, 46, 36, 0.3);
 }
 
-.btn-solid:active {
-    transform: scale(0.96);
-    background: var(--primary) !important;
-    color: white !important;
-    box-shadow: 0 5px 15px rgba(238, 46, 36, 0.3);
-}
-
-/* Ensure buttons with white background (like CTAs) keep their text visible and turn red on click */
-.btn-white,
-.btn-solid[style*="background: white"],
-.btn-solid[style*="background:white"] {
-    border: 1px solid var(--slate-200) !important;
-}
-
+.btn-solid:active,
 .btn-white:active,
-.btn-solid[style*="background: white"]:active,
-.btn-solid[style*="background:white"]:active {
-    background: var(--primary) !important;
-    color: white !important;
-    border-color: var(--primary) !important;
-}
-
 .btn-outline:active {
     background: var(--primary) !important;
     color: white !important;
     border-color: var(--primary) !important;
     transform: scale(0.96);
+    box-shadow: 0 5px 15px rgba(238, 46, 36, 0.3);
 }
 
 /* DASHBOARD MOCKUP */
@@ -946,28 +948,20 @@ h6 {
 /* FOOTER REDESIGN */
 .footer-modern {
     background: #0a0f1c;
-    /* Deeper dark */
     color: #cbd5e1;
-    padding: 100px 0 40px;
+    padding: 40px 0 40px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    /* Crucial: allow logo to overlap top edge */
 }
 
-.footer-modern::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(238, 46, 36, 0.3), transparent);
-}
+/* Removed .footer-modern::before to eliminate gradient line */
 
 .footer-top {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 60px;
-    margin-bottom: 80px;
+    gap: 40px;
+    margin-bottom: 40px;
 }
 
 .footer-brand h2 {
@@ -1074,7 +1068,7 @@ h6 {
 /* FOOTER */
 footer {
     padding: 80px 0 40px;
-    border-top: 1px solid var(--slate-100);
+    border-top: none !important;
 }
 
 /* NEWS SECTION */
@@ -1280,4 +1274,20 @@ footer {
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 30px;
+}
+
+/* RED BOX CTA REFINEMENT */
+.red-box-animated {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.red-box-animated:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.red-box-animated:active {
+    transform: translateY(-4px) scale(0.98);
+    transition: all 0.1s;
 }

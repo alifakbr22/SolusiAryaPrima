@@ -7,8 +7,8 @@
     <div class="container">
         <div class="hero-content fade-scroll text-center">
             <span class="badge">SINCE 1988</span>
-            <h1 class="text-gradient">Heritage & <span style="display: block;">Inovasi</span></h1>
-            <p style="max-width: 800px; margin: 0 auto; color: var(--slate-600); font-size: 1.15rem;">Pelopor pengadaan teknologi industri dan solusi infrastruktur TI di seluruh Indonesia selama lebih dari tiga dekade.</p>
+            <h1 class="text-gradient">{{ __('Heritage & Inovasi') }}</h1>
+            <p style="max-width: 800px; margin: 0 auto; color: var(--slate-600); font-size: 1.15rem;">{{ __('Pelopor pengadaan teknologi industri dan solusi infrastruktur TI di seluruh Indonesia selama lebih dari tiga dekade.') }}</p>
         </div>
     </div>
 </section>
@@ -17,15 +17,15 @@
     <div class="container">
         <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: flex-start;">
             <div class="fade-scroll">
-                <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">SEJARAH PERUSAHAAN</span>
-                <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 12px; margin-bottom: 40px;">Evolusi Industri</h2>
+                <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ __('SEJARAH PERUSAHAAN') }}</span>
+                <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 12px; margin-bottom: 40px;">{{ __('Evolusi Industri') }}</h2>
                 <div style="display: flex; flex-direction: column; gap: 24px;">
                     @php
                         $milestones = [
-                            ['year' => '1988', 'title' => 'Pendirian', 'desc' => 'Didirikan dengan fokus pada solusi TI dan elektronik khusus untuk sektor industri.'],
-                            ['year' => '1995', 'title' => 'Ekspansi Strategis', 'desc' => 'Memulai kemitraan jangka panjang dengan institusi pemerintah dan memperluas infrastruktur layanan.'],
-                            ['year' => '2012', 'title' => 'Integrasi Digital', 'desc' => 'Resmi bergabung dalam e-Katalog LKPP, memodernisasi proses pengadaan publik.'],
-                            ['year' => '2020', 'title' => 'Skala Teknologi', 'desc' => 'Meraih sertifikasi ISO 9001:2015 & ISO 27001:2013 untuk keunggulan manajemen mutu dan keamanan informasi.']
+                            ['year' => '1988', 'title' => __('Pendirian'), 'desc' => __('Didirikan dengan fokus pada solusi TI dan elektronik khusus untuk sektor industri.')],
+                            ['year' => '1995', 'title' => __('Ekspansi Strategis'), 'desc' => __('Memulai kemitraan jangka panjang dengan institusi pemerintah dan memperluas infrastruktur layanan.')],
+                            ['year' => '2012', 'title' => __('Integrasi Digital'), 'desc' => __('Resmi bergabung dalam e-Katalog LKPP, memodernisasi proses pengadaan publik.')],
+                            ['year' => '2020', 'title' => __('Skala Teknologi'), 'desc' => __('Meraih sertifikasi ISO 9001:2015 & ISO 27001:2013 untuk keunggulan manajemen mutu dan keamanan informasi.')]
                         ];
                     @endphp
                     @foreach($milestones as $m)
@@ -44,19 +44,19 @@
             
             <div class="fade-scroll" style="position: sticky; top: 120px;">
                 <div class="bento-card" style="padding: 48px; border-left: 4px solid var(--primary); background: white;">
-                    <span style="color: var(--primary); font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">PRINSIP UTAMA</span>
-                    <h3 style="margin: 16px 0 32px; font-size: 2.2rem;">Visi & Misi</h3>
+                    <span style="color: var(--primary); font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">{{ __('PRINSIP UTAMA') }}</span>
+                    <h3 style="margin: 16px 0 32px; font-size: 2.2rem;">{{ __('Visi & Misi') }}</h3>
                     <div style="margin-bottom: 40px;">
-                        <h4 style="color: var(--primary); margin-bottom: 16px; font-size: 0.9rem; text-transform: uppercase;">VISI KAMI</h4>
-                        <p style="font-style: italic; color: var(--slate-700); line-height: 1.8; font-size: 1.15rem;">"Menjadi Pemenang dalam kegiatan pengadaan barang dan jasa sesuai dengan Norma yang berlaku."</p>
+                        <h4 style="color: var(--primary); margin-bottom: 16px; font-size: 0.9rem; text-transform: uppercase;">{{ __('VISI KAMI') }}</h4>
+                        <p style="font-style: italic; color: var(--slate-700); line-height: 1.8; font-size: 1.15rem;">"{{ __('Menjadi Pemenang dalam kegiatan pengadaan barang dan jasa sesuai dengan Norma yang berlaku.') }}"</p>
                     </div>
                     <div>
-                        <h4 style="color: var(--primary); margin-bottom: 16px; font-size: 0.9rem; text-transform: uppercase;">MISI KAMI</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 16px; font-size: 0.9rem; text-transform: uppercase;">{{ __('MISI KAMI') }}</h4>
                         <ul style="list-style: none; padding: 0; font-size: 0.95rem; color: var(--slate-600); display: flex; flex-direction: column; gap: 16px;">
-                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Memenuhi kebutuhan pengadaan barang/jasa di bidang solusi Teknologi Informasi</li>
-                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Menyelesaikan kegiatan dengan perhitungan tepat, barang sesuai, mutu terbaik</li>
-                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Menjalin hubungan baik dan berkesinambungan dengan seluruh mitra kerja</li>
-                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> Menciptakan lapangan pekerjaan dan mendidik setiap karyawan</li>
+                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> {{ __('Memenuhi kebutuhan pengadaan barang/jasa di bidang solusi Teknologi Informasi') }}</li>
+                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> {{ __('Menyelesaikan kegiatan dengan perhitungan tepat, barang sesuai, mutu terbaik') }}</li>
+                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> {{ __('Menjalin hubungan baik dan berkesinambungan dengan seluruh mitra kerja') }}</li>
+                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> {{ __('Menciptakan lapangan pekerjaan dan mendidik setiap karyawan') }}</li>
                         </ul>
                     </div>
                 </div>
@@ -68,23 +68,23 @@
 <section class="section" id="culture">
     <div class="container">
         <div class="section-title fade-scroll text-center" style="margin-bottom: 80px;">
-            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">BUDAYA PERUSAHAAN</span>
-            <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 12px;">Budaya P.R.E.M.M.I.E.R.E</h2>
-            <p style="color: var(--slate-600); max-width: 700px; margin: 24px auto 0;">Filosofi operasional mendasar yang mendorong komitmen kami terhadap keunggulan industri.</p>
+            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ __('BUDAYA PERUSAHAAN') }}</span>
+            <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 12px;">{{ __('Budaya P.R.E.M.M.I.E.R.E') }}</h2>
+            <p style="color: var(--slate-600); max-width: 700px; margin: 24px auto 0;">{{ __('Filosofi operasional mendasar yang mendorong komitmen kami terhadap keunggulan industri.') }}</p>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
             @php
                 $premmier = [
-                    ['key' => 'P', 'label' => 'PROFESIONAL', 'desc' => 'Menjunjung tinggi standar teknis dan etika kerja tertinggi.'],
-                    ['key' => 'R', 'label' => 'RESPONSIF', 'desc' => 'Keterlibatan proaktif dan respon cepat terhadap perubahan.'],
-                    ['key' => 'E', 'label' => 'EDUKATIF', 'desc' => 'Memberikan wawasan teknis untuk hasil yang optimal.'],
-                    ['key' => 'M', 'label' => 'MELAYANI', 'desc' => 'Dedikasi penyampaian layanan untuk keandalan strategis.'],
-                    ['key' => 'M', 'label' => 'MOTIVASI', 'desc' => 'Inovasi berkelanjutan untuk mempertahankan kepemimpinan.'],
-                    ['key' => 'I', 'label' => 'INTEGRITAS', 'desc' => 'Operasi transparan dan kejujuran sebagai landasan.'],
-                    ['key' => 'E', 'label' => 'EFISIEN', 'desc' => 'Optimalisasi sumber daya untuk kinerja tinggi.'],
-                    ['key' => 'R', 'label' => 'RELIANCE', 'desc' => 'Mitra yang konsisten dan dapat diandalkan untuk solusi industri.'],
-                    ['key' => 'E', 'label' => 'EXCELLENCE', 'desc' => 'Komitmen terhadap kesempurnaan dalam setiap penerapan.']
+                    ['key' => 'P', 'label' => __('PROFESIONAL'), 'desc' => __('Menjunjung tinggi standar teknis dan etika kerja tertinggi.')],
+                    ['key' => 'R', 'label' => __('RESPONSIF'), 'desc' => __('Keterlibatan proaktif dan respon cepat terhadap perubahan.')],
+                    ['key' => 'E', 'label' => __('EDUKATIF'), 'desc' => __('Memberikan wawasan teknis untuk hasil yang optimal.')],
+                    ['key' => 'M', 'label' => __('MELAYANI'), 'desc' => __('Dedikasi penyampaian layanan untuk keandalan strategis.')],
+                    ['key' => 'M', 'label' => __('MOTIVASI'), 'desc' => __('Inovasi berkelanjutan untuk mempertahankan kepemimpinan.')],
+                    ['key' => 'I', 'label' => __('INTEGRITAS'), 'desc' => __('Operasi transparan dan kejujuran sebagai landasan.')],
+                    ['key' => 'E', 'label' => __('EFISIEN'), 'desc' => __('Optimalisasi sumber daya untuk kinerja tinggi.')],
+                    ['key' => 'R', 'label' => __('RELIANCE'), 'desc' => __('Mitra yang konsisten dan dapat diandalkan untuk solusi industri.')],
+                    ['key' => 'E', 'label' => __('EXCELLENCE'), 'desc' => __('Komitmen terhadap kesempurnaan dalam setiap penerapan.')]
                 ];
             @endphp
             @foreach($premmier as $index => $item)
@@ -105,18 +105,18 @@
         <div class="container" style="position: relative; z-index: 2;">
             <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center;">
                 <div class="fade-scroll">
-                    <span style="color: white; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">VALIDASI OPERASIONAL</span>
-                    <h2 style="font-size: 2.5rem; margin: 16px 0 24px; color: white;">Budaya dalam Aksi</h2>
-                    <p style="color: rgba(255,255,255,0.9); line-height: 1.8; margin-bottom: 40px; font-size: 1.1rem;">Dengan menjunjung tinggi **Keandalan** dan **Integritas**, kami telah mempertahankan kemitraan strategis selama lebih dari tiga dekade dengan sektor pemerintah dan swasta di seluruh Indonesia.</p>
+                    <span style="color: white; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">{{ __('VALIDASI OPERASIONAL') }}</span>
+                    <h2 style="font-size: 2.5rem; margin: 16px 0 24px; color: white;">{{ __('Budaya dalam Aksi') }}</h2>
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.8; margin-bottom: 40px; font-size: 1.1rem;">{{ __('Dengan menjunjung tinggi **Keandalan** dan **Integritas**, kami telah mempertahankan kemitraan strategis selama lebih dari tiga dekade dengan sektor pemerintah dan swasta di seluruh Indonesia.') }}</p>
                     <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                        <a href="{{ route('portfolio') }}" class="btn btn-solid btn-white" style="background: white; color: var(--primary);">Lihat Portfolio</a>
-                        <a href="{{ route('contact') }}" class="btn btn-outline" style="color: white; border-color: white;">Hubungi Sekarang</a>
+                        <a href="{{ route('portfolio') }}" class="btn btn-white">{{ __('Lihat Portfolio') }}</a>
+                        <a href="{{ route('contact') }}" class="btn btn-light-outline">{{ __('Hubungi Sekarang') }}</a>
                     </div>
                 </div>
                 <div class="fade-scroll" style="position: relative; text-align: center;">
                     <div class="bento-card" style="display: inline-block; padding: 48px; border-radius: 32px; background: white; border: none;">
                         <div style="font-size: 3.5rem; font-weight: 800; color: var(--primary); margin-bottom: 8px;">36+</div>
-                        <div style="font-weight: 700; color: var(--slate-500); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">TAHUN BEROPERASI</div>
+                        <div style="font-weight: 700; color: var(--slate-500); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ __('TAHUN BEROPERASI') }}</div>
                     </div>
                 </div>
             </div>
@@ -128,15 +128,15 @@
 <section class="section">
     <div class="container">
         <div class="section-title fade-scroll" style="margin-bottom: 60px;">
-            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">JAJARAN DIREKSI</span>
-            <h2 class="text-gradient" style="font-size: 2.5rem; margin: 10px 0 0;">Dewan Direksi</h2>
+            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ __('JAJARAN DIREKSI') }}</span>
+            <h2 class="text-gradient" style="font-size: 2.5rem; margin: 10px 0 0;">{{ __('Dewan Direksi') }}</h2>
         </div>
         
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
             @php
                 $leaders = [
-                    ['name' => 'ASEP MOCHAMAD ISHAK', 'role' => 'Mitra Pendiri & Direktur'],
-                    ['name' => 'MONGGIARTO HARJOJOWINOTO', 'role' => 'Mitra Pendiri & Komisaris']
+                    ['name' => 'ASEP MOCHAMAD ISHAK', 'role' => __('Mitra Pendiri & Direktur')],
+                    ['name' => 'MONGGIARTO HARJOJOWINOTO', 'role' => __('Mitra Pendiri & Komisaris')]
                 ];
             @endphp
             @foreach($leaders as $index => $leader)

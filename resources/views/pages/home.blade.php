@@ -9,15 +9,15 @@
     <div class="container">
         <div class="hero-content fade-scroll">
             <span class="badge">#SolusiTeknologiTerpadu</span>
-            <h1 class="text-gradient">Solusi Teknologi untuk <span style="display: block;">Masa Depan Perkantoran</span></h1>
-            <p>Penyedia peralatan elektronik perkantoran dan IT terpercaya sejak 1988. Mitra pengadaan barang/jasa untuk pemerintah dan swasta.</p>
+            <h1 class="text-gradient">{{ __('Solusi Teknologi untuk Masa Depan Perkantoran') }}</h1>
+            <p>{{ __('Penyedia peralatan elektronik perkantoran dan IT terpercaya sejak 1988. Mitra pengadaan barang/jasa untuk pemerintah dan swasta.') }}</p>
             <div class="hero-actions">
-                <a href="{{ route('contact') }}" class="btn btn-solid">Hubungi Sekarang</a>
-                <a href="{{ route('services') }}" class="btn btn-outline" style="color: var(--primary); border-color: var(--primary);">Lihat Produk</a>
+                <a href="{{ route('contact') }}" class="btn btn-solid">{{ __('Hubungi Sekarang') }}</a>
+                <a href="{{ route('services') }}" class="btn btn-outline">{{ __('Lihat Produk') }}</a>
             </div>
         </div>
 
-        <div class="hero-visual fade-scroll" style="margin-top: 60px;">
+        <div class="hero-visual fade-scroll" style="margin-top: 30px;">
             <div class="glass-card" style="padding: 2px; border-radius: 32px; background: linear-gradient(135deg, var(--primary), #ff6b6b);">
                 <div style="background: var(--white); border-radius: 30px; overflow: hidden; height: 500px; position: relative;">
                     <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0.03; font-family: var(--font-heading); font-size: 10rem; font-weight: 800; pointer-events: none;">
@@ -57,9 +57,9 @@
 <!-- SOLUTIONS BENTO GRID -->
 <section id="solusi" class="section">
     <div class="container">
-        <div class="section-title fade-scroll text-center" style="margin-bottom: 60px;">
-            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">KEMAMPUAN KAMI</span>
-            <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">Infrastruktur Siap Masa Depan</h2>
+        <div class="section-title fade-scroll text-center" style="margin-bottom: 30px;">
+            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ __('KEMAMPUAN KAMI') }}</span>
+            <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Infrastruktur Siap Masa Depan') }}</h2>
         </div>
 
         <div class="bento-grid" style="grid-template-columns: repeat(3, 1fr); gap: 24px;">
@@ -68,11 +68,11 @@
                 <div class="icon-box">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                 </div>
-                <h3 style="font-size: 2.2rem; margin-bottom: 20px;">Ekosistem TI Perusahaan</h3>
-                <p style="color: var(--slate-600); font-size: 1.1rem; max-width: 500px; margin-bottom: 32px;">Solusi perangkat keras lengkap mulai dari server berperforma tinggi hingga workstation cerdas yang dirancang untuk keandalan perusahaan.</p>
+                <h3 style="font-size: 2.2rem; margin-bottom: 20px;">{{ __('Ekosistem TI Perusahaan') }}</h3>
+                <p style="color: var(--slate-600); font-size: 1.1rem; max-width: 500px; margin-bottom: 32px;">{{ __('Solusi perangkat keras lengkap mulai dari server berperforma tinggi hingga workstation cerdas yang dirancang untuk keandalan perusahaan.') }}</p>
                 <div style="display: flex; gap: 12px;">
-                    <span style="font-size: 0.75rem; padding: 6px 12px; background: var(--slate-50); border: 1px solid var(--slate-100); border-radius: 6px; font-weight: 600;">PUSAT DATA</span>
-                    <span style="font-size: 0.75rem; padding: 6px 12px; background: var(--slate-50); border: 1px solid var(--slate-100); border-radius: 6px; font-weight: 600;">JARINGAN</span>
+                    <span style="font-size: 0.75rem; padding: 6px 12px; background: var(--slate-50); border: 1px solid var(--slate-100); border-radius: 6px; font-weight: 600;">{{ __('PUSAT DATA') }}</span>
+                    <span style="font-size: 0.75rem; padding: 6px 12px; background: var(--slate-50); border: 1px solid var(--slate-100); border-radius: 6px; font-weight: 600;">{{ __('JARINGAN') }}</span>
                 </div>
             </div>
 
@@ -134,7 +134,7 @@
 <!-- STATS SECTION -->
 <section class="section">
     <div class="container">
-        <div class="bento-card" style="padding: 60px 40px; border-radius: 40px;">
+        <div class="bento-card" style="padding: 40px 30px; border-radius: 40px;">
             <div class="stats-grid fade-scroll">
                 <div class="stat-item">
                     <h4>36+</h4>
@@ -160,7 +160,7 @@
 <!-- VISI MISI SECTION -->
 <section class="section">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: flex-start;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: flex-start;">
             <div class="fade-scroll stagger-1">
                 <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">CV SOLUSI ARYA PRIMA</span>
                 <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 12px; margin-bottom: 32px;">Visi & Misi Perusahaan</h2>
@@ -196,26 +196,26 @@
 <!-- TESTIMONIALS SECTION -->
 <section class="section">
     <div class="container">
-        <div class="section-title fade-scroll text-center" style="margin-bottom: 60px;">
-            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">KEPERCAYAAN & FEEDBACK</span>
-            <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">Cerita Sukses Klien</h2>
+        <div class="section-title fade-scroll text-center" style="margin-bottom: 30px;">
+            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ __('KEPERCAYAAN & FEEDBACK') }}</span>
+            <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Cerita Sukses Klien') }}</h2>
         </div>
 
         <div class="bento-grid" style="grid-template-columns: repeat(2, 1fr); gap: 24px;">
             <div class="bento-card fade-scroll" style="padding: 40px;">
-                <div style="color: var(--primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 24px;">TESTIMONI #01</div>
-                <p style="font-style: italic; color: var(--slate-600); line-height: 1.8; font-size: 1.1rem; margin-bottom: 32px;">"CV Solusi Arya Prima memberikan layanan profesional tingkat tinggi. Solusi infrastrukturnya diterapkan dengan presisi dan ketepatan waktu yang luar biasa."</p>
+                <div style="color: var(--primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 24px;">{{ __('TESTIMONI #01') }}</div>
+                <p style="font-style: italic; color: var(--slate-600); line-height: 1.8; font-size: 1.1rem; margin-bottom: 32px;">"{{ __('CV Solusi Arya Prima memberikan layanan profesional tingkat tinggi. Solusi infrastrukturnya diterapkan dengan presisi dan ketepatan waktu yang luar biasa.') }}"</p>
                 <div>
-                    <h5 style="margin: 0;">Badan KOMINFO Jawa Tengah</h5>
-                    <small style="color: var(--primary); font-weight: 700;">SEKTOR PEMERINTAH</small>
+                    <h5 style="margin: 0;">{{ __('Badan KOMINFO Jawa Tengah') }}</h5>
+                    <small style="color: var(--primary); font-weight: 700;">{{ __('SEKTOR PEMERINTAH') }}</small>
                 </div>
             </div>
             <div class="bento-card fade-scroll" style="padding: 40px;">
-                <div style="color: var(--primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 24px;">TESTIMONI #02</div>
-                <p style="font-style: italic; color: var(--slate-600); line-height: 1.8; font-size: 1.1rem; margin-bottom: 32px;">"Kolaborasi yang luar biasa dalam pengadaan TI untuk infrastruktur kampus kami. Responsif, teknis, dan sangat andal."</p>
+                <div style="color: var(--primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 24px;">{{ __('TESTIMONI #02') }}</div>
+                <p style="font-style: italic; color: var(--slate-600); line-height: 1.8; font-size: 1.1rem; margin-bottom: 32px;">"{{ __('Kolaborasi yang luar biasa dalam pengadaan TI untuk infrastruktur kampus kami. Responsif, teknis, dan sangat andal.') }}"</p>
                 <div>
-                    <h5 style="margin: 0;">Universitas Diponegoro</h5>
-                    <small style="color: var(--primary); font-weight: 700;">SEKTOR PENDIDIKAN</small>
+                    <h5 style="margin: 0;">{{ __('Universitas Diponegoro') }}</h5>
+                    <small style="color: var(--primary); font-weight: 700;">{{ __('SEKTOR PENDIDIKAN') }}</small>
                 </div>
             </div>
         </div>
@@ -228,19 +228,19 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
             <div class="bento-card fade-scroll stagger-1" style="padding: 32px; text-align: center;">
                 <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 8px;">ISO 9001:2015</h3>
-                <p style="font-size: 0.75rem; color: var(--slate-500); text-transform: uppercase; font-weight: 700;">Manajemen Mutu</p>
+                <p style="font-size: 0.75rem; color: var(--slate-500); text-transform: uppercase; font-weight: 700;">{{ __('Manajemen Mutu') }}</p>
             </div>
             <div class="bento-card fade-scroll stagger-2" style="padding: 32px; text-align: center;">
                 <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 8px;">ISO 27001:2013</h3>
-                <p style="font-size: 0.75rem; color: var(--slate-500); text-transform: uppercase; font-weight: 700;">Keamanan Informasi</p>
+                <p style="font-size: 0.75rem; color: var(--slate-500); text-transform: uppercase; font-weight: 700;">{{ __('Keamanan Informasi') }}</p>
             </div>
             <div class="bento-card fade-scroll stagger-3" style="padding: 32px; text-align: center;">
                 <h3 style="font-size: 1.25rem; margin-bottom: 8px;">NPWP & PKP</h3>
-                <p style="font-size: 0.75rem; color: var(--slate-500); text-transform: uppercase; font-weight: 700;">Kepatuhan Pajak</p>
+                <p style="font-size: 0.75rem; color: var(--slate-500); text-transform: uppercase; font-weight: 700;">{{ __('Kepatuhan Pajak') }}</p>
             </div>
             <div class="bento-card fade-scroll stagger-4" style="padding: 32px; text-align: center;">
                 <h3 style="font-size: 1.25rem; margin-bottom: 8px;">NIB & SIUP</h3>
-                <p style="font-size: 0.75rem; color: var(--slate-500); text-transform: uppercase; font-weight: 700;">Akreditasi Dagang</p>
+                <p style="font-size: 0.75rem; color: var(--slate-500); text-transform: uppercase; font-weight: 700;">{{ __('Akreditasi Dagang') }}</p>
             </div>
         </div>
     </div>
@@ -249,18 +249,18 @@
 <!-- COLLABORATION STAGES -->
 <section class="section">
     <div class="container">
-        <div class="section-title fade-scroll text-center" style="margin-bottom: 60px;">
-            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">TAHAPAN KERJA</span>
-            <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">Proses Kolaborasi Strategis</h2>
+        <div class="section-title fade-scroll text-center" style="margin-bottom: 30px;">
+            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ __('TAHAPAN KERJA') }}</span>
+            <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Proses Kolaborasi Strategis') }}</h2>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
             @php
                 $steps = [
-                    ['title' => 'Audit Teknis', 'desc' => 'Analisis mendalam terhadap infrastruktur TI yang ada dan kebutuhan spesifik bisnis.'],
-                    ['title' => 'Desain Solusi', 'desc' => 'Perancangan cetak biru integrasi perangkat keras dan lunak yang dioptimalkan.'],
-                    ['title' => 'Implementasi', 'desc' => 'Pemasangan dan konfigurasi profesional oleh tim ahli teknis bersertifikat.'],
-                    ['title' => 'Optimasi', 'desc' => 'Pemantauan dan pemeliharaan berkelanjutan untuk memastikan kinerja operasional puncak.']
+                    ['title' => __('Audit Teknis'), 'desc' => __('Analisis mendalam terhadap infrastruktur TI yang ada dan kebutuhan spesifik bisnis.')],
+                    ['title' => __('Desain Solusi'), 'desc' => __('Perancangan cetak biru integrasi perangkat keras dan lunak yang dioptimalkan.')],
+                    ['title' => __('Implementasi'), 'desc' => __('Pemasangan dan konfigurasi profesional oleh tim ahli teknis bersertifikat.')],
+                    ['title' => __('Optimasi'), 'desc' => __('Pemantauan dan pemeliharaan berkelanjutan untuk memastikan kinerja operasional puncak.')]
                 ];
             @endphp
             @foreach($steps as $index => $step)
@@ -277,15 +277,15 @@
 </section>
 
 <!-- CTA SECTION -->
-<section class="section" style="padding: 0 24px 80px;">
-    <div class="bento-card red-box-animated" style="padding: 100px 40px; text-align: center; background: linear-gradient(135deg, var(--primary) 0%, #d32f2f 100%); border: none; border-radius: 40px; overflow: hidden; position: relative; box-shadow: 0 20px 50px rgba(238, 46, 36, 0.3);">
+<section class="section" style="padding: 0 24px 40px;">
+    <div class="bento-card red-box-animated" style="padding: 60px 40px; text-align: center; background: linear-gradient(135deg, var(--primary) 0%, #d32f2f 100%); border: none; border-radius: 40px; overflow: hidden; position: relative;">
         <div class="container" style="position: relative; z-index: 2;">
             <div class="hero-content text-center fade-scroll">
-                <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 24px; color: white;">Tingkatkan Kapabilitas <span style="opacity: 0.9;">Industri Anda</span></h2>
-                <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto; font-size: 1.15rem;">Bermitra dengan pelopor industri sejak 1988 untuk infrastruktur teknologi tingkat profesional.</p>
+                <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 24px; color: white;">{{ __('Tingkatkan Kapabilitas Industri Anda') }}</h2>
+                <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto; font-size: 1.15rem;">{{ __('Bermitra dengan pelopor industri sejak 1988 untuk infrastruktur teknologi tingkat profesional.') }}</p>
                 <div class="hero-actions" style="margin-top: 48px; display: flex; gap: 20px; justify-content: center;">
-                    <a href="{{ route('contact') }}" class="btn btn-solid btn-white" style="background: white; color: var(--primary);">Hubungi Sekarang</a>
-                    <a href="https://premmiere.co.id/" target="_blank" class="btn btn-outline" style="color: white; border-color: white;">Jelajahi Katalog Produk</a>
+                    <a href="{{ route('contact') }}" class="btn btn-white">{{ __('Hubungi Sekarang') }}</a>
+                    <a href="https://premmiere.co.id/" target="_blank" class="btn btn-light-outline">{{ __('Jelajahi Katalog Produk') }}</a>
                 </div>
             </div>
         </div>

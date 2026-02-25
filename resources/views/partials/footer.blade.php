@@ -1,14 +1,11 @@
 <footer class="footer-modern">
+    <a href="/" class="logo" style="display: inline-flex; align-items: center; justify-content: center; background: #f8fafc; padding: 35px 70px; border-radius: 0 0 40px 0; position: absolute; top: 0; left: 0; z-index: 1001; box-shadow: none; min-width: 320px;">
+        <img src="{{ asset('images/logo.png') }}" alt="Solusi Arya Prima" style="height: 55px; width: auto;">
+    </a>
     <div class="container">
         <div class="footer-top">
-            <div class="footer-brand">
-                <a href="/" class="logo" style="margin-bottom: 25px; display: flex; align-items: flex-start;">
-                    <div class="logo-text">
-                        <span class="logo-accent" style="color: var(--primary); font-size: 0.85rem; letter-spacing: 3px; display: block; font-weight: 800; line-height: 1;">SOLUSI</span>
-                        <strong style="color: white; font-size: 1.5rem; display: block; line-height: 1; margin-top: 5px;">ARYA PRIMA</strong>
-                    </div>
-                </a>
-                <p style="color: #94a3b8; line-height: 1.8; margin-bottom: 30px; font-size: 0.95rem;">Penyedia solusi Teknologi Informasi dan perlengkapan perkantoran terintegrasi sejak 1988. Berkomitmen memberikan layanan terbaik untuk sektor publik dan swasta.</p>
+            <div class="footer-brand" style="padding-top: 100px;">
+                <p style="color: #94a3b8; line-height: 1.8; margin-bottom: 30px; font-size: 0.95rem;">{{ __('Penyedia solusi Teknologi Informasi dan perlengkapan perkantoran terintegrasi sejak 1988. Berkomitmen memberikan layanan terbaik untuk sektor publik dan swasta.') }}</p>
                 <div style="display: flex; gap: 15px;">
                     <a href="#" style="width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.05); color: white; display: flex; align-items: center; justify-content: center; transition: all 0.3s;" onmouseover="this.style.background='var(--primary)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -23,27 +20,27 @@
             </div>
 
             <div class="footer-nav">
-                <h5 class="footer-heading">Tautan Cepat</h5>
+                <h5 class="footer-heading">{{ __('Tautan Cepat') }}</h5>
                 <ul class="footer-list">
-                    <li><a href="{{ route('home') }}">Beranda</a></li>
-                    <li><a href="{{ route('about') }}">Tentang Kami</a></li>
-                    <li><a href="{{ route('portfolio') }}">Project Experience</a></li>
-                    <li><a href="{{ route('contact') }}">Hubungi Kami</a></li>
+                    <li><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
+                    <li><a href="{{ route('about') }}">{{ __('About') }}</a></li>
+                    <li><a href="{{ route('portfolio') }}">{{ __('Project Experience') }}</a></li>
+                    <li><a href="{{ route('contact') }}">{{ __('Contact Us') }}</a></li>
                 </ul>
             </div>
 
             <div class="footer-nav">
-                <h5 class="footer-heading">Layanan & Produk</h5>
+                <h5 class="footer-heading">{{ __('Services') }}</h5>
                 <ul class="footer-list">
-                    <li><a href="{{ route('services') }}#komputer">Komputer & Server</a></li>
-                    <li><a href="{{ route('services') }}#software">Software & Perangkat Lunak</a></li>
-                    <li><a href="{{ route('services') }}#recording">Electronic Security</a></li>
-                    <li><a href="{{ route('services') }}#meubelair">Smart Class System</a></li>
+                    <li><a href="{{ route('services') }}#komputer">{{ __('Komputer & Server') }}</a></li>
+                    <li><a href="{{ route('services') }}#software">{{ __('Software & Perangkat Lunak') }}</a></li>
+                    <li><a href="{{ route('services') }}#recording">{{ __('Electronic Security') }}</a></li>
+                    <li><a href="{{ route('services') }}#meubelair">{{ __('Smart Class System') }}</a></li>
                 </ul>
             </div>
 
             <div class="footer-nav">
-                <h5 class="footer-heading">Hubungi Kami</h5>
+                <h5 class="footer-heading">{{ __('Contact Us') }}</h5>
                 <p style="font-size: 0.9rem; margin-bottom: 20px; color: #94a3b8; line-height: 1.6;">
                     Jalan S. Parman No. 47 B, Semarang 50232<br>
                     Jawa Tengah, Indonesia
