@@ -78,7 +78,7 @@
             <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto; margin-bottom: 40px; font-size: 1.1rem;">{{ __('Hubungi tim compliance kami untuk permintaan salinan legalitas atau verifikasi partner institusional.') }}</p>
             <div style="display: flex; gap: 20px; justify-content: center;">
                 <a href="{{ route('contact') }}" class="btn btn-solid btn-white" style="background: white; color: var(--primary);">{{ __('Hubungi Compliance') }}</a>
-                <a href="{{ route('about') }}#culture" class="btn btn-outline" style="color: white; border-color: white;">{{ __('Lihat Budaya Kami') }}</a>
+                <a href="{{ route('about') }}#culture" class="btn btn-light-outline">{{ __('Lihat Budaya Kami') }}</a>
             </div>
         </div>
     </div>

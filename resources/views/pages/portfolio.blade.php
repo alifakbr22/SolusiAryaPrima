@@ -109,10 +109,10 @@
 <!-- FINAL CTA -->
 <section class="section" style="padding-bottom: 100px;">
     <div class="container">
-        <div class="bento-card" style="padding: 100px 40px; text-align: center; background: linear-gradient(135deg, var(--white) 0%, var(--slate-50) 100%);">
-            <h2 class="text-gradient" style="font-size: 2.5rem; margin-bottom: 24px;">{{ __('Inisialisasi Implementasi Anda') }}</h2>
-            <p style="color: var(--slate-600); max-width: 600px; margin: 0 auto; margin-bottom: 48px; font-size: 1.1rem;">{{ __('Merekayasa solusi teknologi berdedikasi untuk kesuksesan organisasi Anda sejak 1988.') }}</p>
-            <a href="{{ route('contact') }}" class="btn btn-solid" style="background: var(--primary); color: white;">{{ __('Mulai Konsultasi') }}</a>
+        <div class="bento-card red-box-animated" style="padding: 100px 40px; text-align: center; background: linear-gradient(135deg, var(--primary) 0%, #d32f2f 100%); border: none;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 24px; color: white;">{{ __('Inisialisasi Implementasi Anda') }}</h2>
+            <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto; margin-bottom: 48px; font-size: 1.1rem;">{{ __('Merekayasa solusi teknologi berdedikasi untuk kesuksesan organisasi Anda sejak 1988.') }}</p>
+            <a href="{{ route('contact') }}" class="btn btn-white">{{ __('Mulai Konsultasi') }}</a>
         </div>
     </div>
 </section>

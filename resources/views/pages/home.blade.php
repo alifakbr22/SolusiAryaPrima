@@ -5,54 +5,194 @@
 @section('content')
 
 <!-- HERO SECTION -->
-<section class="hero">
+<section class="hero hero-split">
     <div class="container">
-        <div class="hero-content fade-scroll">
-            <span class="badge">#SolusiTeknologiTerpadu</span>
-            <h1 class="text-gradient">{{ __('Solusi Teknologi untuk Masa Depan Perkantoran') }}</h1>
-            <p>{{ __('Penyedia peralatan elektronik perkantoran dan IT terpercaya sejak 1988. Mitra pengadaan barang/jasa untuk pemerintah dan swasta.') }}</p>
-            <div class="hero-actions">
-                <a href="{{ route('contact') }}" class="btn btn-solid">{{ __('Hubungi Sekarang') }}</a>
-                <a href="{{ route('services') }}" class="btn btn-outline">{{ __('Lihat Produk') }}</a>
-            </div>
+        <div class="text-center" style="margin-bottom: 40px;">
+            <span class="badge" id="heroBadge">#SolusiTeknologiTerpadu</span>
         </div>
+        
+        <div class="hero-split-content">
+            <!-- Static Text Content -->
+            <div class="hero-content fade-scroll">
+                <h1 class="text-gradient" id="heroTitle">{{ __('Solusi Teknologi untuk Masa Depan Perkantoran') }}</h1>
+                <p id="heroDesc">{{ __('Penyedia peralatan elektronik perkantoran dan IT terpercaya sejak 1988. Mitra pengadaan barang/jasa untuk pemerintah dan swasta.') }}</p>
+                <div class="hero-actions">
+                    <a href="{{ route('contact') }}" class="btn btn-solid" id="heroBtn1">{{ __('Hubungi Sekarang') }}</a>
+                    <a href="{{ route('services') }}" class="btn btn-outline" id="heroBtn2">{{ __('Lihat Produk') }}</a>
+                </div>
+            </div>
 
-        <div class="hero-visual fade-scroll" style="margin-top: 30px;">
-            <div class="glass-card" style="padding: 2px; border-radius: 32px; background: linear-gradient(135deg, var(--primary), #ff6b6b);">
-                <div style="background: var(--white); border-radius: 30px; overflow: hidden; height: 500px; position: relative;">
-                    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0.03; font-family: var(--font-heading); font-size: 10rem; font-weight: 800; pointer-events: none;">
-                        SAP
+            <!-- Visual Column (Slider + Dots) -->
+            <div class="hero-visual-column">
+                <div class="hero-slider" id="heroSlider" style="width: 100%;">
+                    <!-- Slider Arrows -->
+                    <div class="slider-arrow prev">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
                     </div>
-                    <!-- Dashboard Mockup (Light Theme) -->
-                    <div style="position: relative; z-index: 2; padding: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-                        <div class="glass-card" style="height: 120px; padding: 20px; border-radius: 16px; background: white; border: 1px solid var(--slate-100);">
-                            <div style="width: 30px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 12px;"></div>
-                            <div style="width: 80%; height: 8px; background: var(--slate-100); border-radius: 4px; margin-bottom: 8px;"></div>
-                            <div style="width: 50%; height: 8px; background: var(--slate-50); border-radius: 4px;"></div>
-                        </div>
-                        <div class="glass-card" style="height: 120px; padding: 20px; border-radius: 16px; background: white; border: 1px solid var(--slate-100);">
-                            <div style="width: 30px; height: 4px; background: #ff6b6b; border-radius: 2px; margin-bottom: 12px;"></div>
-                            <div style="width: 70%; height: 8px; background: var(--slate-100); border-radius: 4px; margin-bottom: 8px;"></div>
-                            <div style="width: 40%; height: 8px; background: var(--slate-50); border-radius: 4px;"></div>
-                        </div>
-                        <div class="glass-card" style="height: 120px; padding: 20px; border-radius: 16px; background: white; border: 1px solid var(--slate-100);">
-                            <div style="width: 30px; height: 4px; background: var(--slate-300); border-radius: 2px; margin-bottom: 12px;"></div>
-                            <div style="width: 60%; height: 8px; background: var(--slate-100); border-radius: 4px; margin-bottom: 8px;"></div>
-                            <div style="width: 30%; height: 8px; background: var(--slate-50); border-radius: 4px;"></div>
-                        </div>
-                        <div class="glass-card" style="grid-column: span 3; height: 200px; padding: 24px; border-radius: 16px; display: flex; align-items: flex-end; gap: 12px; background: white; border: 1px solid var(--slate-100);">
-                            <div style="flex: 1; height: 40%; background: var(--primary-soft); border: 1px solid var(--primary); border-radius: 4px;"></div>
-                            <div style="flex: 1; height: 80%; background: rgba(255, 107, 107, 0.1); border: 1px solid #ff6b6b; border-radius: 4px;"></div>
-                            <div style="flex: 1; height: 60%; background: var(--slate-50); border: 1px solid var(--slate-100); border-radius: 4px;"></div>
-                            <div style="flex: 1; height: 90%; background: var(--primary-soft); border: 1px solid var(--primary); border-radius: 4px;"></div>
-                            <div style="flex: 1; height: 50%; background: var(--slate-50); border: 1px solid var(--slate-100); border-radius: 4px;"></div>
+                    <div class="slider-arrow next">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </div>
+
+                    <!-- Slide 1: IT Infrastructure -->
+                    <div class="hero-slide active" data-index="0">
+                        <div class="hero-visual">
+                            <div class="dashboard-mockup">
+                                <div class="floating-element element-main" style="background: white;">
+                                    <div class="mockup-header">
+                                        <div class="mockup-dot" style="background: #ff5f56;"></div>
+                                        <div class="mockup-dot" style="background: #ffbd2e;"></div>
+                                        <div class="mockup-dot" style="background: #27c93f;"></div>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: 100px 1fr; gap: 20px;">
+                                        <div class="mockup-content-skeleton">
+                                            <div class="skeleton-line" style="width: 100%;"></div>
+                                            <div class="skeleton-line" style="width: 80%;"></div>
+                                            <div class="skeleton-line" style="width: 90%;"></div>
+                                        </div>
+                                        <div style="background: var(--slate-50); height: 160px; border-radius: 12px; display: flex; align-items: flex-end; gap: 8px; padding: 15px;">
+                                            <div style="flex: 1; height: 40%; background: var(--primary); opacity: 0.3; border-radius: 4px;"></div>
+                                            <div style="flex: 1; height: 80%; background: var(--primary); opacity: 0.6; border-radius: 4px;"></div>
+                                            <div style="flex: 1; height: 60%; background: var(--primary); opacity: 0.4; border-radius: 4px;"></div>
+                                            <div style="flex: 1; height: 100%; background: var(--primary); border-radius: 4px;"></div>
+                                            <div style="flex: 1; height: 50%; background: var(--primary); opacity: 0.2; border-radius: 4px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Slide 2: Digital Intelligence -->
+                    <div class="hero-slide" data-index="1">
+                        <div class="hero-visual">
+                            <div class="dashboard-mockup variant-software">
+                                <div class="floating-element element-main" style="background: white;">
+                                    <div class="mockup-header">
+                                        <div class="mockup-dot"></div>
+                                        <div class="mockup-dot"></div>
+                                        <div class="mockup-dot"></div>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                                        <div style="display: flex; gap: 10px;">
+                                            <div style="width: 30px; height: 30px; background: #e0e7ff; border-radius: 6px;"></div>
+                                            <div class="skeleton-line" style="width: 140px; height: 12px; margin-top: 9px;"></div>
+                                        </div>
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                            <div style="height: 100px; background: #f8fafc; border: 1px dashed #e0e7ff; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                                <div style="width: 40%; height: 40%; border: 2px solid #4f46e5; border-radius: 50%; border-top-color: transparent;"></div>
+                                            </div>
+                                            <div style="height: 100px; background: #f8fafc; border: 1px dashed #e0e7ff; border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 8px;">
+                                                <div class="skeleton-line" style="width: 100%;"></div>
+                                                <div class="skeleton-line" style="width: 70%;"></div>
+                                                <div class="skeleton-line" style="width: 40%; background: #4f46e5; opacity: 0.2;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Smart Learning -->
+                    <div class="hero-slide" data-index="2">
+                        <div class="hero-visual">
+                            <div class="dashboard-mockup variant-learning">
+                                <div class="floating-element element-main" style="background: white;">
+                                    <div class="mockup-header">
+                                        <div class="mockup-dot"></div>
+                                        <div class="mockup-dot"></div>
+                                        <div class="mockup-dot"></div>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                                        <div style="height: 120px; background: #ecfdf5; border-radius: 12px; overflow: hidden; position: relative;">
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #10b981; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 10px;">
+                                            <div style="flex: 1; height: 30px; background: #f0fdf4; border-radius: 6px;"></div>
+                                            <div style="flex: 1; height: 30px; background: #f0fdf4; border-radius: 6px;"></div>
+                                            <div style="flex: 1; height: 30px; background: #10b981; opacity: 0.1; border-radius: 6px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Navigation Dots -->
+                <div class="hero-slider-nav">
+                    <div class="slider-dot active" data-target="0"></div>
+                    <div class="slider-dot" data-target="1"></div>
+                    <div class="slider-dot" data-target="2"></div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.querySelector('.slider-arrow.prev');
+    const nextBtn = document.querySelector('.slider-arrow.next');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        let next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }
+
+    function prevSlide() {
+        let prev = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(prev);
+    }
+
+    function startAutoSlide() {
+        stopAutoSlide();
+        slideInterval = setInterval(nextSlide, 6000);
+    }
+
+    function stopAutoSlide() {
+        if (slideInterval) clearInterval(slideInterval);
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+            startAutoSlide();
+        });
+    });
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            startAutoSlide();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            startAutoSlide();
+        });
+    }
+
+    startAutoSlide();
+});
+</script>
 
 <!-- SOLUTIONS BENTO GRID -->
 <section id="solusi" class="section">
@@ -79,7 +219,7 @@
             <!-- Side Capability -->
             <div class="bento-card fade-scroll stagger-2" style="padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <div class="icon-box" style="background: rgba(238, 46, 36, 0.1); color: var(--primary);">
+                    <div class="icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Kecerdasan Digital</h3>
@@ -90,7 +230,7 @@
 
             <!-- Small Cards -->
             <div class="bento-card fade-scroll stagger-1" style="padding: 32px;">
-                <div class="icon-box" style="width: 48px; height: 48px; font-size: 1.2rem;">
+                <div class="icon-box">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v19M5 8h14M15 15h2a2 2 0 012 2v2M5 19v-2a2 2 0 012-2h2"/></svg>
                 </div>
                 <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Ruang Kerja Modern</h4>
@@ -98,7 +238,7 @@
             </div>
 
             <div class="bento-card fade-scroll stagger-2" style="grid-column: span 2; padding: 40px; display: flex; align-items: center; gap: 40px; background: linear-gradient(135deg, var(--primary-soft) 0%, transparent 100%);">
-                <div class="icon-box" style="width: 80px; height: 80px; flex-shrink: 0;">
+                <div class="icon-box">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                 </div>
                 <div>
