@@ -107,7 +107,7 @@
                 <div class="fade-scroll">
                     <span style="color: white; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">{{ __('VALIDASI OPERASIONAL') }}</span>
                     <h2 style="font-size: 2.5rem; margin: 16px 0 24px; color: white;">{{ __('Budaya dalam Aksi') }}</h2>
-                    <p style="color: rgba(255,255,255,0.9); line-height: 1.8; margin-bottom: 40px; font-size: 1.1rem;">{{ __('Dengan menjunjung tinggi **Keandalan** dan **Integritas**, kami telah mempertahankan kemitraan strategis selama lebih dari tiga dekade dengan sektor pemerintah dan swasta di seluruh Indonesia.') }}</p>
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.8; margin-bottom: 40px; font-size: 1.1rem;">{{ __('Dengan menjunjung tinggi Keandalan dan Integritas, kami telah mempertahankan kemitraan strategis selama lebih dari tiga dekade dengan sektor pemerintah dan swasta di seluruh Indonesia.') }}</p>
                     <div style="display: flex; gap: 20px; flex-wrap: wrap;">
                         <a href="{{ route('portfolio') }}" class="btn btn-white">{{ __('Lihat Portfolio') }}</a>
                         <a href="{{ route('contact') }}" class="btn btn-light-outline">{{ __('Hubungi Sekarang') }}</a>

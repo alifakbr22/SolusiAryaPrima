@@ -7,7 +7,7 @@
     <div class="container">
         <div class="hero-content fade-scroll text-center">
             <span class="badge">{{ __('REKAM JEJAK PROYEK') }}</span>
-            <h1 class="text-gradient">{{ __('Heritage Strategis & Keberhasilan Operasional') }}</h1>
+            <h1 class="text-gradient">{{ __('Portofolio Klien') }}</h1>
             <p style="max-width: 800px; margin: 0 auto; color: var(--slate-600); font-size: 1.15rem;">{{ __('Catatan komprehensif penerapan teknologi industri tingkat tinggi dan kemitraan lintas sektor sejak 1988.') }}</p>
         </div>
     </div>

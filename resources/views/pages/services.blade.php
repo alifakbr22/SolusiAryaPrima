@@ -8,7 +8,7 @@
         <div class="hero-content fade-scroll text-center">
             <span class="badge">{{ __('PRODUK & LAYANAN') }}</span>
             <h1 class="text-gradient">{{ __('Solusi Teknologi untuk Masa Depan Perkantoran') }}</h1>
-            <p style="max-width: 800px; margin: 0 auto; color: var(--slate-600); font-size: 1.15rem;">{{ __('Penyedia peralatan elektronik perkantoran dan IT terpercaya sejak 1988. Mitra pengadaan barang/jasa untuk pemerintah dan swasta.') }}</p>
+            <p style="max-width: 800px; margin: 0 auto; color: var(--slate-600); font-size: 1.15rem;">{{ __('Berbagai solusi IT dan elektronik perkantoran untuk kebutuhan Anda.') }}</p>
         </div>
     </div>
 </section>
