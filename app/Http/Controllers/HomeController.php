@@ -9,7 +9,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $sliders = \App\Models\Slider::where('is_active', true)
+            ->orderBy('order')
+            ->get();
+
+        return view('pages.home', compact('sliders'));
     }
 
     public function storeContact(Request $request)

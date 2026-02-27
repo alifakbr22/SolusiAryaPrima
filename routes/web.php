@@ -11,7 +11,7 @@ use App\Http\Controllers\ContactController;
 |--------------------------------------------------------------------------
 */
 
-Route::view('/', 'pages.home')->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::view('/about', 'pages.about')->name('about');
 Route::view('/services', 'pages.services')->name('services');
 Route::view('/cabang', 'pages.cabang')->name('cabang');

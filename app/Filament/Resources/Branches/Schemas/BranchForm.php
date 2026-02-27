@@ -19,16 +19,9 @@ class BranchForm
                     ->columnSpanFull(),
                 TextInput::make('city')
                     ->required(),
-                TextInput::make('phone')
-                    ->tel()
-                    ->default(null),
-                TextInput::make('email')
-                    ->label('Email address')
-                    ->email()
-                    ->default(null),
-                TextInput::make('map_url')
-                    ->url()
-                    ->default(null),
+                TextInput::make('phone'),
+                TextInput::make('email'),
+                TextInput::make('map_url'),
             ]);
     }
 }

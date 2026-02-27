@@ -18,23 +18,19 @@
                 <ul class="dropdown-menu">
                     <li>
                         <a href="{{ route('about') }}" class="dropdown-item {{ request()->routeIs('about') ? 'active' : '' }}">
-                            <div class="dropdown-icon-wrapper">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                            </div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> 
                             <div class="dropdown-content">
-                                <div class="dropdown-title">{{ __('Profile Perusahaan') }}</div>
-                                <div class="dropdown-desc">{{ __('Visi, misi, dan sejarah perjalanan kami sejak 1988.') }}</div>
+                                <span class="dropdown-title">{{ __('Profile Perusahaan') }}</span>
+                                <span class="dropdown-desc">{{ __('Visi, misi, dan sejarah perjalanan kami sejak 1988.') }}</span>
                             </div>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('certification') }}" class="dropdown-item {{ request()->routeIs('certification') ? 'active' : '' }}">
-                            <div class="dropdown-icon-wrapper">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            </div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 
                             <div class="dropdown-content">
-                                <div class="dropdown-title">{{ __('Legalitas & Sertifikasi') }}</div>
-                                <div class="dropdown-desc">{{ __('Kepercayaan dan standar kualitas operasional kami.') }}</div>
+                                <span class="dropdown-title">{{ __('Legalitas & Sertifikasi') }}</span>
+                                <span class="dropdown-desc">{{ __('Kepercayaan dan standar kualitas operasional kami.') }}</span>
                             </div>
                         </a>
                     </li>

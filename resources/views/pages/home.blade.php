@@ -4,6 +4,37 @@
 
 @section('content')
 
+<style>
+
+    .slider-dot {
+        width: 14px !important;
+        height: 14px !important;
+        background: var(--slate-100) !important;
+        border: 2px solid var(--slate-300) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .slider-dot::after {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: var(--slate-400);
+        border-radius: 50%;
+    }
+
+    .slider-dot.active {
+        background: var(--white) !important;
+        border-color: var(--primary) !important;
+        box-shadow: 0 0 10px rgba(238, 46, 36, 0.2) !important;
+    }
+
+    .slider-dot.active::after {
+        background: var(--primary) !important;
+    }
+</style>
+
 <!-- HERO SECTION -->
 <section class="hero hero-split">
     <div class="container">
@@ -33,7 +64,47 @@
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
                     </div>
 
-                    <!-- Slide 1: IT Infrastructure -->
+                    @forelse($sliders as $index => $slider)
+                    <div class="hero-slide {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}">
+                        <div class="hero-visual">
+                            @php
+                                $isImage = $slider->image && preg_match('/\.(jpg|jpeg|png|webp|svg|gif)$/i', $slider->image);
+                            @endphp
+
+                            @if($isImage)
+                                <img src="{{ asset('storage/' . $slider->image) }}" alt="{{ $slider->title }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                @if($slider->button_text)
+                                    <div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 10;">
+                                        <a href="{{ $slider->button_link ?? '#' }}" class="btn btn-solid">{{ $slider->button_text }}</a>
+                                    </div>
+                                @endif
+                            @else
+                                <!-- Dynamic Content Layout based on title or description if image is missing -->
+                                <div class="dashboard-mockup">
+                                    <div class="floating-element element-main" style="background: white;">
+                                        <div class="mockup-header">
+                                            <div class="mockup-dot" style="background: #ff5f56;"></div>
+                                            <div class="mockup-dot" style="background: #ffbd2e;"></div>
+                                            <div class="mockup-dot" style="background: #27c93f;"></div>
+                                        </div>
+                                        <div style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; height: calc(100% - 30px);">
+                                            <div>
+                                                <h3 style="margin-bottom: 10px;">{{ $slider->title }}</h3>
+                                                <p>{{ $slider->description }}</p>
+                                            </div>
+                                            @if($slider->button_text)
+                                                <div style="margin-top: 20px; text-align: center;">
+                                                    <a href="{{ $slider->button_link ?? '#' }}" class="btn btn-solid">{{ $slider->button_text }}</a>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    @empty
+                    <!-- Fallback Slide 1: IT Infrastructure -->
                     <div class="hero-slide active" data-index="0">
                         <div class="hero-visual">
                             <div class="dashboard-mockup">
@@ -61,71 +132,20 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Slide 2: Digital Intelligence -->
-                    <div class="hero-slide" data-index="1">
-                        <div class="hero-visual">
-                            <div class="dashboard-mockup variant-software">
-                                <div class="floating-element element-main" style="background: white;">
-                                    <div class="mockup-header">
-                                        <div class="mockup-dot"></div>
-                                        <div class="mockup-dot"></div>
-                                        <div class="mockup-dot"></div>
-                                    </div>
-                                    <div style="display: flex; flex-direction: column; gap: 15px;">
-                                        <div style="display: flex; gap: 10px;">
-                                            <div style="width: 30px; height: 30px; background: #e0e7ff; border-radius: 6px;"></div>
-                                            <div class="skeleton-line" style="width: 140px; height: 12px; margin-top: 9px;"></div>
-                                        </div>
-                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                                            <div style="height: 100px; background: #f8fafc; border: 1px dashed #e0e7ff; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                                                <div style="width: 40%; height: 40%; border: 2px solid #4f46e5; border-radius: 50%; border-top-color: transparent;"></div>
-                                            </div>
-                                            <div style="height: 100px; background: #f8fafc; border: 1px dashed #e0e7ff; border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 8px;">
-                                                <div class="skeleton-line" style="width: 100%;"></div>
-                                                <div class="skeleton-line" style="width: 70%;"></div>
-                                                <div class="skeleton-line" style="width: 40%; background: #4f46e5; opacity: 0.2;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3: Smart Learning -->
-                    <div class="hero-slide" data-index="2">
-                        <div class="hero-visual">
-                            <div class="dashboard-mockup variant-learning">
-                                <div class="floating-element element-main" style="background: white;">
-                                    <div class="mockup-header">
-                                        <div class="mockup-dot"></div>
-                                        <div class="mockup-dot"></div>
-                                        <div class="mockup-dot"></div>
-                                    </div>
-                                    <div style="display: flex; flex-direction: column; gap: 20px;">
-                                        <div style="height: 120px; background: #ecfdf5; border-radius: 12px; overflow: hidden; position: relative;">
-                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #10b981; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                                            </div>
-                                        </div>
-                                        <div style="display: flex; gap: 10px;">
-                                            <div style="flex: 1; height: 30px; background: #f0fdf4; border-radius: 6px;"></div>
-                                            <div style="flex: 1; height: 30px; background: #f0fdf4; border-radius: 6px;"></div>
-                                            <div style="flex: 1; height: 30px; background: #10b981; opacity: 0.1; border-radius: 6px;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
 
                 <!-- Slider Navigation Dots -->
                 <div class="hero-slider-nav">
-                    <div class="slider-dot active" data-target="0"></div>
-                    <div class="slider-dot" data-target="1"></div>
-                    <div class="slider-dot" data-target="2"></div>
+                    @if($sliders->count() > 0)
+                        @foreach($sliders as $index => $slider)
+                            <div class="slider-dot {{ $index === 0 ? 'active' : '' }}" data-target="{{ $index }}"></div>
+                        @endforeach
+                    @else
+                        <div class="slider-dot active" data-target="0"></div>
+                        <div class="slider-dot" data-target="1"></div>
+                        <div class="slider-dot" data-target="2"></div>
+                    @endif
                 </div>
             </div>
         </div>
