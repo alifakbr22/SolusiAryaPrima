@@ -12,8 +12,10 @@ class HomeController extends Controller
         $sliders = \App\Models\Slider::where('is_active', true)
             ->orderBy('order')
             ->get();
+            
+        $services = \App\Models\Service::limit(6)->get();
 
-        return view('pages.home', compact('sliders'));
+        return view('pages.home', compact('sliders', 'services'));
     }
 
     public function storeContact(Request $request)

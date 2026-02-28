@@ -21,7 +21,9 @@ class ServiceForm
                 TextInput::make('icon')
                     ->default(null),
                 FileUpload::make('image')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('services'),
             ]);
     }
 }

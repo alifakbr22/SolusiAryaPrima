@@ -39,14 +39,14 @@
 <section class="hero hero-split">
     <div class="container">
         <div class="text-center" style="margin-bottom: 40px;">
-            <span class="badge" id="heroBadge">#SolusiTeknologiTerpadu</span>
+            <span class="badge" id="heroBadge">{{ isset($siteSettings) && $siteSettings->hero_badge ? $siteSettings->hero_badge : '#SolusiTeknologiTerpadu' }}</span>
         </div>
         
         <div class="hero-split-content">
             <!-- Static Text Content -->
             <div class="hero-content fade-scroll">
-                <h1 class="text-gradient" id="heroTitle">{{ __('Solusi Teknologi untuk Masa Depan Perkantoran') }}</h1>
-                <p id="heroDesc">{{ __('Penyedia peralatan elektronik perkantoran dan IT terpercaya sejak 1988. Mitra pengadaan barang/jasa untuk pemerintah dan swasta.') }}</p>
+                <h1 class="text-gradient" id="heroTitle">{{ isset($siteSettings) && $siteSettings->hero_title ? $siteSettings->hero_title : __('Solusi Teknologi untuk Masa Depan Perkantoran') }}</h1>
+                <p id="heroDesc">{{ isset($siteSettings) && $siteSettings->hero_description ? $siteSettings->hero_description : __('Penyedia peralatan elektronik perkantoran dan IT terpercaya sejak 1988. Mitra pengadaan barang/jasa untuk pemerintah dan swasta.') }}</p>
                 <div class="hero-actions">
                     <a href="{{ route('contact') }}" class="btn btn-solid" id="heroBtn1">{{ __('Hubungi Sekarang') }}</a>
                     <a href="{{ route('services') }}" class="btn btn-outline" id="heroBtn2">{{ __('Lihat Produk') }}</a>
@@ -222,71 +222,44 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Infrastruktur Siap Masa Depan') }}</h2>
         </div>
 
-        <div class="bento-grid" style="grid-template-columns: repeat(3, 1fr); gap: 24px;">
-            <!-- Main Capability -->
-            <div class="bento-card fade-scroll stagger-1" style="grid-column: span 2; padding: 48px; min-height: 400px;">
-                <div class="icon-box">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                </div>
-                <h3 style="font-size: 2.2rem; margin-bottom: 20px;">{{ __('Ekosistem TI Perusahaan') }}</h3>
-                <p style="color: var(--slate-600); font-size: 1.1rem; max-width: 500px; margin-bottom: 32px;">{{ __('Solusi perangkat keras lengkap mulai dari server berperforma tinggi hingga workstation cerdas yang dirancang untuk keandalan perusahaan.') }}</p>
-                <div style="display: flex; gap: 12px;">
-                    <span style="font-size: 0.75rem; padding: 6px 12px; background: var(--slate-50); border: 1px solid var(--slate-100); border-radius: 6px; font-weight: 600;">{{ __('PUSAT DATA') }}</span>
-                    <span style="font-size: 0.75rem; padding: 6px 12px; background: var(--slate-50); border: 1px solid var(--slate-100); border-radius: 6px; font-weight: 600;">{{ __('JARINGAN') }}</span>
-                </div>
-            </div>
-
-            <!-- Side Capability -->
-            <div class="bento-card fade-scroll stagger-2" style="padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <div class="icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+            @if(isset($services) && $services->count() > 0)
+                @foreach($services as $index => $result)
+                    @php
+                        $isFeatured = $index === 0;
+                        $gridColumn = $isFeatured ? 'grid-column: 1 / -1;' : '';
+                        $stagger = 'stagger-' . (($index % 3) + 1);
+                        $bgGradient = ($index % 3 === 2) ? 'background: linear-gradient(135deg, var(--primary-soft) 0%, transparent 100%);' : '';
+                    @endphp
+                    <div class="bento-card fade-scroll {{ $stagger }}" style="{{ $gridColumn }} padding: {{ $isFeatured ? '48px' : '32px' }}; {{ $bgGradient }} display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div class="icon-box" style="margin-bottom: 20px; width: {{ $isFeatured ? '64px' : '48px' }}; height: {{ $isFeatured ? '64px' : '48px' }}; overflow: hidden;">
+                                @if($result->image)
+                                    <img src="{{ asset('storage/' . $result->image) }}" alt="{{ $result->title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                                @elseif($result->icon)
+                                    {!! $result->icon !!}
+                                @else
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                @endif
+                            </div>
+                            <h3 style="font-size: {{ $isFeatured ? '2.2rem' : '1.5rem' }}; margin-bottom: 12px;">{{ $result->title }}</h3>
+                            <p style="color: var(--slate-600); font-size: {{ $isFeatured ? '1.1rem' : '0.95rem' }}; max-width: {{ $isFeatured ? '600px' : '100%' }};">{{ Str::limit($result->description, 180) }}</p>
+                            @if($isFeatured)
+                            <div style="display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap;">
+                                <span style="font-size: 0.75rem; padding: 6px 12px; background: var(--slate-50); border: 1px solid var(--slate-100); border-radius: 6px; font-weight: 600;">LAYANAN UNGGULAN</span>
+                            </div>
+                            @endif
+                        </div>
+                        @if(!$isFeatured)
+                            <a href="{{ route('services') }}" style="color: var(--primary); text-decoration: none; font-size: 0.85rem; font-weight: 700; margin-top: 24px; display: inline-block;">{{ __('LIHAT SEMUA →') }}</a>
+                        @endif
                     </div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Kecerdasan Digital</h3>
-                    <p style="color: var(--slate-600); font-size: 0.95rem;">Integrasi perangkat lunak yang mulus dan strategi transformasi digital khusus untuk tata kelola modern.</p>
-                </div>
-                <a href="{{ route('services') }}#software" style="color: var(--primary); text-decoration: none; font-size: 0.85rem; font-weight: 700; margin-top: 24px;">LIHAT SOFTWARE →</a>
-            </div>
-
-            <!-- Small Cards -->
-            <div class="bento-card fade-scroll stagger-1" style="padding: 32px;">
-                <div class="icon-box">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v19M5 8h14M15 15h2a2 2 0 012 2v2M5 19v-2a2 2 0 012-2h2"/></svg>
-                </div>
-                <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Ruang Kerja Modern</h4>
-                <p style="color: var(--slate-500); font-size: 0.85rem;">Desain kantor cerdas dan solusi interior untuk produktivitas ergonomis.</p>
-            </div>
-
-            <div class="bento-card fade-scroll stagger-2" style="grid-column: span 2; padding: 40px; display: flex; align-items: center; gap: 40px; background: linear-gradient(135deg, var(--primary-soft) 0%, transparent 100%);">
-                <div class="icon-box">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                </div>
-                <div>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 8px;">Smart Class & Learning</h3>
-                    <p style="color: var(--slate-600);">Solusi teknologi pendidikan lanjutan untuk lingkungan pembelajaran generasi berikutnya.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bento-grid" style="margin-top: 24px; grid-template-columns: repeat(3, 1fr);">
-            <div class="bento-card fade-scroll" style="padding: 24px; text-align: center;">
-                <div class="icon-box" style="margin: 0 auto 12px; width: 45px; height: 45px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-                </div>
-                <h5 style="font-size: 0.9rem;">Perlengkapan Kantor</h5>
-            </div>
-            <div class="bento-card fade-scroll" style="padding: 24px; text-align: center;">
-                <div class="icon-box" style="margin: 0 auto 12px; width: 45px; height: 45px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                </div>
-                <h5 style="font-size: 0.9rem;">Mebel & Smart Class</h5>
-            </div>
-            <div class="bento-card fade-scroll" style="padding: 24px; text-align: center;">
-                <div class="icon-box" style="margin: 0 auto 12px; width: 45px; height: 45px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-                </div>
-                <h5 style="font-size: 0.9rem;">Retail & E-Katalog</h5>
-            </div>
+                @endforeach
+            @else
+                 <div class="bento-card" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                     <p style="color: var(--slate-600);">{{ __('Layanan belum tersedia.') }}</p>
+                 </div>
+            @endif
         </div>
     </div>
 </section>
@@ -322,29 +295,31 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: flex-start;">
             <div class="fade-scroll stagger-1">
-                <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">CV SOLUSI ARYA PRIMA</span>
+                <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ isset($siteSettings) && $siteSettings->company_name ? strtoupper($siteSettings->company_name) : 'CV SOLUSI ARYA PRIMA' }}</span>
                 <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 12px; margin-bottom: 32px;">Visi & Misi Perusahaan</h2>
                 <div class="bento-card" style="padding: 48px; border-left: 4px solid var(--primary);">
                     <h4 style="color: var(--primary); margin-bottom: 20px; font-size: 0.9rem; text-transform: uppercase;">VISI KAMI</h4>
-                    <p style="font-style: italic; color: var(--slate-700); line-height: 1.8; font-size: 1.2rem;">"Menjadi Pemenang dalam kegiatan pengadaan barang dan jasa sesuai dengan Norma yang berlaku."</p>
+                    <p style="font-style: italic; color: var(--slate-700); line-height: 1.8; font-size: 1.2rem;">"{{ isset($siteSettings) && $siteSettings->vision ? $siteSettings->vision : 'Menjadi Pemenang dalam kegiatan pengadaan barang dan jasa sesuai dengan Norma yang berlaku.' }}"</p>
                 </div>
             </div>
             <div class="fade-scroll stagger-2">
                 <h4 style="margin-bottom: 40px; font-size: 0.9rem; color: var(--slate-50); text-transform: uppercase; letter-spacing: 2px; opacity: 0;">MISI STRATEGIS</h4>
                 <ul style="list-style: none; padding: 0;">
                     @php
-                        $missions = [
-                            'Memenuhi kebutuhan pengadaan barang/jasa di bidang solusi Teknologi Informasi',
-                            'Menyelesaikan kegiatan dengan perhitungan tepat, barang sesuai, mutu terbaik',
-                            'Menjalin hubungan baik dan berkesinambungan dengan seluruh mitra kerja',
-                            'Menciptakan lapangan pekerjaan dan mendidik setiap karyawan',
-                            'Mengembangkan potensi karyawan untuk kesejahteraan yang baik'
-                        ];
+                        $missions = isset($siteSettings) && $siteSettings->mission 
+                            ? array_filter(explode("\n", str_replace("\r", "", $siteSettings->mission)))
+                            : [
+                                'Memenuhi kebutuhan pengadaan barang/jasa di bidang solusi Teknologi Informasi',
+                                'Menyelesaikan kegiatan dengan perhitungan tepat, barang sesuai, mutu terbaik',
+                                'Menjalin hubungan baik dan berkesinambungan dengan seluruh mitra kerja',
+                                'Menciptakan lapangan pekerjaan dan mendidik setiap karyawan',
+                                'Mengembangkan potensi karyawan untuk kesejahteraan yang baik'
+                            ];
                     @endphp
                     @foreach($missions as $index => $mission)
                     <li style="margin-bottom: 20px; display: flex; gap: 20px; align-items: flex-start;">
                         <div style="font-weight: 800; color: var(--primary); font-size: 1.1rem; min-width: 30px;">✓</div>
-                        <p style="font-size: 1rem; color: var(--slate-600); line-height: 1.5;">{{ $mission }}</p>
+                        <p style="font-size: 1rem; color: var(--slate-600); line-height: 1.5;">{{ trim($mission) }}</p>
                     </li>
                     @endforeach
                 </ul>

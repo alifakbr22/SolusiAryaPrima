@@ -48,15 +48,24 @@
                     <h3 style="margin: 16px 0 32px; font-size: 2.2rem;">{{ __('Visi & Misi') }}</h3>
                     <div style="margin-bottom: 40px;">
                         <h4 style="color: var(--primary); margin-bottom: 16px; font-size: 0.9rem; text-transform: uppercase;">{{ __('VISI KAMI') }}</h4>
-                        <p style="font-style: italic; color: var(--slate-700); line-height: 1.8; font-size: 1.15rem;">"{{ __('Menjadi Pemenang dalam kegiatan pengadaan barang dan jasa sesuai dengan Norma yang berlaku.') }}"</p>
+                        <p style="font-style: italic; color: var(--slate-700); line-height: 1.8; font-size: 1.15rem;">"{{ isset($siteSettings) && $siteSettings->vision ? $siteSettings->vision : __('Menjadi Pemenang dalam kegiatan pengadaan barang dan jasa sesuai dengan Norma yang berlaku.') }}"</p>
                     </div>
                     <div>
                         <h4 style="color: var(--primary); margin-bottom: 16px; font-size: 0.9rem; text-transform: uppercase;">{{ __('MISI KAMI') }}</h4>
                         <ul style="list-style: none; padding: 0; font-size: 0.95rem; color: var(--slate-600); display: flex; flex-direction: column; gap: 16px;">
-                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> {{ __('Memenuhi kebutuhan pengadaan barang/jasa di bidang solusi Teknologi Informasi') }}</li>
-                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> {{ __('Menyelesaikan kegiatan dengan perhitungan tepat, barang sesuai, mutu terbaik') }}</li>
-                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> {{ __('Menjalin hubungan baik dan berkesinambungan dengan seluruh mitra kerja') }}</li>
-                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> {{ __('Menciptakan lapangan pekerjaan dan mendidik setiap karyawan') }}</li>
+                            @php
+                                $missions = isset($siteSettings) && $siteSettings->mission 
+                                    ? array_filter(explode("\n", str_replace("\r", "", $siteSettings->mission)))
+                                    : [
+                                        __('Memenuhi kebutuhan pengadaan barang/jasa di bidang solusi Teknologi Informasi'),
+                                        __('Menyelesaikan kegiatan dengan perhitungan tepat, barang sesuai, mutu terbaik'),
+                                        __('Menjalin hubungan baik dan berkesinambungan dengan seluruh mitra kerja'),
+                                        __('Menciptakan lapangan pekerjaan dan mendidik setiap karyawan')
+                                    ];
+                            @endphp
+                            @foreach($missions as $mission)
+                            <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> {{ trim($mission) }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

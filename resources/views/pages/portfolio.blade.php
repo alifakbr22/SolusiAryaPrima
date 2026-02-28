@@ -21,23 +21,29 @@
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
-            @php
-                $clients = [
-                    ['name' => __('KOMINFO Jawa Tengah'), 'task' => __('Pengadaan Infrastruktur IT Data Center')],
-                    ['name' => __('Universitas Diponegoro'), 'task' => __('Sistem IT & Komputasi Berkinerja Tinggi')],
-                    ['name' => __('RSUD Prof. Dr. Margono Soekarjo'), 'task' => __('Penerapan Sistem IT Medis - Paket I')],
-                    ['name' => __('Kementerian Hukum & HAM'), 'task' => __('Arsitektur National Command Center')],
-                    ['name' => __('BKD Provinsi Jawa Tengah'), 'task' => __('Infrastruktur Jaringan untuk CPNS Nasional 2020')],
-                    ['name' => __('Balai Konservasi Borobudur'), 'task' => __('Surveilans Terintegrasi & Multimedia Lanjutan')]
-                ];
-            @endphp
-            @foreach($clients as $index => $client)
-            <div class="bento-card fade-scroll stagger-{{ ($index % 3) + 1 }}" style="padding: 32px; border-left: 4px solid var(--primary);">
-                <div style="font-weight: 800; color: var(--primary); margin-bottom: 16px; font-size: 0.8rem;">{{ __('PROYEK #0') }}{{ $index + 1 }}</div>
-                <h4 style="margin-bottom: 12px; font-size: 1.15rem;">{{ $client['name'] }}</h4>
-                <p style="font-size: 0.9rem; color: var(--slate-600); line-height: 1.6;">{{ $client['task'] }}</p>
-            </div>
-            @endforeach
+            @if(isset($portfolios) && $portfolios->count() > 0)
+                @foreach($portfolios as $index => $client)
+                <div class="bento-card fade-scroll stagger-{{ ($index % 3) + 1 }}" style="padding: 32px; border-left: 4px solid var(--primary);">
+                    <div style="font-weight: 800; color: var(--primary); margin-bottom: 16px; font-size: 0.8rem;">{{ __('PROYEK #') }}{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</div>
+                    <h4 style="margin-bottom: 12px; font-size: 1.15rem;">{{ $client->title }}</h4>
+                    <p style="font-size: 0.9rem; color: var(--slate-600); line-height: 1.6;">{{ $client->description }}</p>
+                    @if($client->client_name)
+                    <div style="margin-top: 16px; font-size: 0.8rem; color: var(--slate-500); font-weight: 600;">
+                        {{ __('Klien:') }} {{ $client->client_name }}
+                    </div>
+                    @endif
+                    @if($client->completion_date)
+                    <div style="margin-top: 8px; font-size: 0.8rem; color: var(--slate-500);">
+                        {{ __('Selesai:') }} {{ \Carbon\Carbon::parse($client->completion_date)->format('F Y') }}
+                    </div>
+                    @endif
+                </div>
+                @endforeach
+            @else
+                <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                    <p style="color: var(--slate-600);">{{ __('Belum ada portfolio proyek yang ditambahkan.') }}</p>
+                </div>
+            @endif
         </div>
 
         <div class="section-title fade-scroll" style="margin-top: 100px; margin-bottom: 60px;">

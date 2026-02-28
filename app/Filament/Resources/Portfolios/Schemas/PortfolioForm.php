@@ -20,7 +20,9 @@ class PortfolioForm
                     ->default(null)
                     ->columnSpanFull(),
                 FileUpload::make('image')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('portfolios'),
                 TextInput::make('client_name')
                     ->default(null),
                 DatePicker::make('completion_date'),

@@ -1,37 +1,27 @@
 <?php
 
-namespace App\Filament\Resources\Sliders\Tables;
+namespace App\Filament\Resources\Settings\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class SlidersTable
+class SettingsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('title')
+                TextColumn::make('site_title')
                     ->searchable(),
-                ImageColumn::make('image')->disk('public'),
-                TextColumn::make('button_text')
+                TextColumn::make('company_name')
                     ->searchable(),
-                TextColumn::make('button_link')
+                TextColumn::make('phone')
                     ->searchable(),
-                TextColumn::make('order')
-                    ->numeric()
-                    ->sortable(),
-                IconColumn::make('is_active')
-                    ->boolean(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('email')
+                    ->searchable(),
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()

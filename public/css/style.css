@@ -419,14 +419,14 @@ h6 {
     position: absolute;
     top: 100%;
     left: 0;
-    transform: translateY(10px);
+    transform: none;
     background: var(--white);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     padding: 12px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    z-index: 1000;
+    z-index: 1100;
     border: 1px solid var(--slate-100);
     min-width: 300px;
     border-radius: 16px;
@@ -440,7 +440,6 @@ h6 {
 .nav-item:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
 }
 
 .dropdown-grid {
@@ -541,18 +540,23 @@ h6 {
 /* HIGH CONTRAST HOVER/ACTIVE STATE */
 .dropdown-item:hover,
 .dropdown-item.active {
-    background: var(--slate-50);
-    color: var(--primary);
+    background: var(--primary) !important;
+    color: var(--white) !important;
 }
 
-.dropdown-item:hover .dropdown-title {
-    color: var(--primary);
+.dropdown-item:hover .dropdown-title,
+.dropdown-item.active .dropdown-title,
+.dropdown-item:hover .dropdown-desc,
+.dropdown-item.active .dropdown-desc,
+.dropdown-item:hover svg,
+.dropdown-item.active svg {
+    color: var(--white) !important;
 }
 
 .dropdown-item:hover .dropdown-icon-wrapper,
 .dropdown-item.active .dropdown-icon-wrapper {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: var(--white) !important;
 }
 
 .nav-extra {
@@ -1171,7 +1175,7 @@ h6 {
     padding: 40px 0 40px;
     position: relative;
     overflow: visible;
-    /* Crucial: allow logo to overlap top edge */
+
 }
 
 /* Removed .footer-modern::before to eliminate gradient line */
@@ -1244,7 +1248,7 @@ h6 {
     text-align: center;
     gap: 15px;
     font-size: 0.9rem;
-    color: #64748b;
+    color: #94a3b8;
 }
 
 @media (max-width: 992px) {
@@ -1262,7 +1266,8 @@ h6 {
 
 .footer-copy {
     font-size: 0.85rem;
-    opacity: 0.6;
+    color: #cbd5e1;
+    opacity: 1;
 }
 
 @media (max-width: 768px) {

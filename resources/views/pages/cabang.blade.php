@@ -117,30 +117,18 @@
         </div>
 
         <div class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
-            <div class="bento-card fade-scroll">
-                <h5 style="margin-bottom: 5px;">{{ __('Kalimantan Timur') }}</h5>
-                <p style="font-size: 0.8rem; opacity: 0.7;">0811-2850-515</p>
-            </div>
-            <div class="bento-card fade-scroll">
-                <h5 style="margin-bottom: 5px;">{{ __('Kalimantan Selatan') }}</h5>
-                <p style="font-size: 0.8rem; opacity: 0.7;">0811-2995-052</p>
-            </div>
-            <div class="bento-card fade-scroll">
-                <h5 style="margin-bottom: 5px;">{{ __('Kalimantan Barat') }}</h5>
-                <p style="font-size: 0.8rem; opacity: 0.7;">0811-2971-441</p>
-            </div>
-            <div class="bento-card fade-scroll">
-                <h5 style="margin-bottom: 5px;">{{ __('Kalimantan Tengah') }}</h5>
-                <p style="font-size: 0.8rem; opacity: 0.7;">0812-5710-5245</p>
-            </div>
-            <div class="bento-card fade-scroll">
-                <h5 style="margin-bottom: 5px;">{{ __('Sumatera (Jambi)') }}</h5>
-                <p style="font-size: 0.8rem; opacity: 0.7;">0812-7167-9690</p>
-            </div>
-            <div class="bento-card fade-scroll">
-                <h5 style="margin-bottom: 5px;">{{ __('Lainnya') }}</h5>
-                <p style="font-size: 0.8rem; opacity: 0.7;">0811-2755-968 (Padang, Medan, Makassar)</p>
-            </div>
+            @if(isset($branches) && $branches->count() > 0)
+                @foreach($branches as $branch)
+                <div class="bento-card fade-scroll">
+                    <h5 style="margin-bottom: 5px;">{{ $branch->name }}</h5>
+                    <p style="font-size: 0.8rem; opacity: 0.7;">{{ $branch->phone ?? 'Belum ada nomor' }}</p>
+                </div>
+                @endforeach
+            @else
+                <div style="grid-column: 1 / -1; text-align: center; padding: 20px;">
+                    <p style="color: var(--slate-600);">{{ __('Belum ada data perwakilan cabang.') }}</p>
+                </div>
+            @endif
         </div>
     </div>
 </section>

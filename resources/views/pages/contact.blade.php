@@ -45,8 +45,7 @@
                 </div>
                 <h4 style="margin-bottom: 16px;">{{ __('KANTOR PUSAT') }}</h4>
                 <p style="font-size: 0.9rem; color: var(--slate-600); line-height: 1.8;">
-                    Jalan S. Parman No. 47 B, Semarang 50232<br>
-                    Jawa Tengah, Indonesia
+                    {!! isset($siteSettings) && $siteSettings->address ? nl2br(e($siteSettings->address)) : 'Jalan S. Parman No. 47 B, Semarang 50232<br>Jawa Tengah, Indonesia' !!}
                 </p>
                 <div style="margin-top: 24px; font-size: 0.75rem; color: var(--primary); font-weight: 700;">{{ __('LOKASI: SEMARANG') }}</div>
             </div>
@@ -58,8 +57,8 @@
                 </div>
                 <h4 style="margin-bottom: 16px;">{{ __('SALURAN KOMUNIKASI') }}</h4>
                 <p style="font-size: 0.9rem; color: var(--slate-600); line-height: 1.8;">
-                    (024) 8508899 / 8505363<br>
-                    WA: 0821-3763-9224<br>
+                    {{ isset($siteSettings) && $siteSettings->hotline ? $siteSettings->hotline : '(024) 8508899 / 8505363' }}<br>
+                    WA: {{ isset($siteSettings) && $siteSettings->phone ? $siteSettings->phone : '0821-3763-9224' }}<br>
                     FAX: (024) 8500599
                 </p>
             </div>
@@ -77,8 +76,8 @@
                         <p style="font-size: 0.9rem; color: var(--slate-600);">{{ __('Untuk kegagalan infrastruktur kritis atau permintaan pengadaan darurat.') }}</p>
                     </div>
                     <div style="text-align: right;">
-                        <div style="font-size: 1.5rem; font-weight: 800; color: var(--primary);">0821-3763-9224</div>
-                        <div style="font-size: 0.8rem; color: var(--slate-500); font-weight: 600;">SOLUSIARYAPRIMA@PREMMIERE.CO.ID</div>
+                        <div style="font-size: 1.5rem; font-weight: 800; color: var(--primary);">{{ isset($siteSettings) && $siteSettings->phone ? $siteSettings->phone : '0821-3763-9224' }}</div>
+                        <div style="font-size: 0.8rem; color: var(--slate-500); font-weight: 600;">{{ isset($siteSettings) && $siteSettings->email ? strtoupper($siteSettings->email) : 'SOLUSIARYAPRIMA@PREMMIERE.CO.ID' }}</div>
                     </div>
                 </div>
             </div>
