@@ -19,7 +19,8 @@ class ServicesTable
                     ->searchable(),
                 TextColumn::make('icon')
                     ->searchable(),
-                ImageColumn::make('image'),
+                ImageColumn::make('image')
+                    ->disk('public'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

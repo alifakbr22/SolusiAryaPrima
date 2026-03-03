@@ -17,7 +17,8 @@ class PortfoliosTable
             ->columns([
                 TextColumn::make('title')
                     ->searchable(),
-                ImageColumn::make('image'),
+                ImageColumn::make('image')
+                    ->disk('public'),
                 TextColumn::make('client_name')
                     ->searchable(),
                 TextColumn::make('completion_date')

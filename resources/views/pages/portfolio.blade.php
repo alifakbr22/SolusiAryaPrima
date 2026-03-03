@@ -23,20 +23,28 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
             @if(isset($portfolios) && $portfolios->count() > 0)
                 @foreach($portfolios as $index => $client)
-                <div class="bento-card fade-scroll stagger-{{ ($index % 3) + 1 }}" style="padding: 32px; border-left: 4px solid var(--primary);">
-                    <div style="font-weight: 800; color: var(--primary); margin-bottom: 16px; font-size: 0.8rem;">{{ __('PROYEK #') }}{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</div>
-                    <h4 style="margin-bottom: 12px; font-size: 1.15rem;">{{ $client->title }}</h4>
-                    <p style="font-size: 0.9rem; color: var(--slate-600); line-height: 1.6;">{{ $client->description }}</p>
-                    @if($client->client_name)
-                    <div style="margin-top: 16px; font-size: 0.8rem; color: var(--slate-500); font-weight: 600;">
-                        {{ __('Klien:') }} {{ $client->client_name }}
+                <div class="bento-card fade-scroll stagger-{{ ($index % 3) + 1 }}" style="padding: 0; border-left: 4px solid var(--primary); overflow: hidden; display: flex; flex-direction: column;">
+                    @if($client->image)
+                    <div style="width: 100%; height: 200px; overflow: hidden; position: relative;">
+                        <img src="{{ asset('storage/' . $client->image) }}" alt="{{ $client->title }}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                        <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 100%);"></div>
                     </div>
                     @endif
-                    @if($client->completion_date)
-                    <div style="margin-top: 8px; font-size: 0.8rem; color: var(--slate-500);">
-                        {{ __('Selesai:') }} {{ \Carbon\Carbon::parse($client->completion_date)->format('F Y') }}
+                    <div style="padding: 32px;">
+                        <div style="font-weight: 800; color: var(--primary); margin-bottom: 16px; font-size: 0.8rem;">{{ __('PROYEK #') }}{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</div>
+                        <h4 style="margin-bottom: 12px; font-size: 1.15rem;">{{ $client->title }}</h4>
+                        <p style="font-size: 0.9rem; color: var(--slate-600); line-height: 1.6;">{{ $client->description }}</p>
+                        @if($client->client_name)
+                        <div style="margin-top: 16px; font-size: 0.8rem; color: var(--slate-500); font-weight: 600;">
+                            {{ __('Klien:') }} {{ $client->client_name }}
+                        </div>
+                        @endif
+                        @if($client->completion_date)
+                        <div style="margin-top: 8px; font-size: 0.8rem; color: var(--slate-500);">
+                            {{ __('Selesai:') }} {{ \Carbon\Carbon::parse($client->completion_date)->format('F Y') }}
+                        </div>
+                        @endif
                     </div>
-                    @endif
                 </div>
                 @endforeach
             @else

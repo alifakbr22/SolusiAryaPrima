@@ -9,61 +9,38 @@
         </a>
 
         <ul class="nav-menu" id="navMenu">
-            <li class="nav-item">
-                <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
-                    {{ __('Home') }}
-                </a>
-            </li>
-            
-            <li class="nav-item has-dropdown">
-                <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') || request()->routeIs('certification') ? 'active' : '' }}">
-                    {{ __('About') }} <span class="dropdown-icon">▾</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="{{ route('about') }}" class="dropdown-item {{ request()->routeIs('about') ? 'active' : '' }}">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> 
-                            <div class="dropdown-content">
-                                <span class="dropdown-title">{{ __('Profile Perusahaan') }}</span>
-                                <span class="dropdown-desc">{{ __('Visi, misi, dan sejarah perjalanan kami sejak 1988.') }}</span>
-                            </div>
+            @foreach($navMenus as $menu)
+                @if($menu->children->count() > 0)
+                    <li class="nav-item has-dropdown">
+                        <a href="{{ $menu->url ?? '#' }}" class="nav-link {{ request()->is(trim($menu->url, '/')) ? 'active' : '' }}">
+                            {{ __($menu->label) }} <span class="dropdown-icon">▾</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            @foreach($menu->children as $child)
+                                <li>
+                                    <a href="{{ $child->url ?? '#' }}" class="dropdown-item {{ request()->is(trim($child->url, '/')) ? 'active' : '' }}">
+                                        @if($child->icon)
+                                            {!! $child->icon !!}
+                                        @endif
+                                        <div class="dropdown-content">
+                                            <span class="dropdown-title">{{ __($child->label) }}</span>
+                                            @if($child->description)
+                                                <span class="dropdown-desc">{{ __($child->description) }}</span>
+                                            @endif
+                                        </div>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a href="{{ $menu->url ?? '#' }}" class="{{ request()->is(trim($menu->url, '/')) ? 'active' : '' }}">
+                            {{ __($menu->label) }}
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('certification') }}" class="dropdown-item {{ request()->routeIs('certification') ? 'active' : '' }}">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 
-                            <div class="dropdown-content">
-                                <span class="dropdown-title">{{ __('Legalitas & Sertifikasi') }}</span>
-                                <span class="dropdown-desc">{{ __('Kepercayaan dan standar kualitas operasional kami.') }}</span>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ route('services') }}" class="nav-link {{ request()->routeIs('services') ? 'active' : '' }}">
-                    {{ __('Services') }}
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ route('portfolio') }}" class="{{ request()->routeIs('portfolio') ? 'active' : '' }}">
-                    {{ __('Portfolio') }}
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ route('cabang') }}" class="{{ request()->routeIs('cabang') ? 'active' : '' }}">
-                    {{ __('Cabang') }}
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
-                    {{ __('Contact') }}
-                </a>
-            </li>
+                @endif
+            @endforeach
         </ul>
 
         <div class="nav-extra">
