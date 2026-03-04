@@ -35,25 +35,25 @@ class NewsResource extends Resource
     {
         return $schema
             ->components([
-                // TextInput::make('title')
-                //     ->required()
-                //     ->live(onBlur: true)
-                //     ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
-                // TextInput::make('slug')
-                //     ->required()
-                //     ->unique(News::class, 'slug', ignoreRecord: true),
-                // RichEditor::make('content')
-                //     ->required()
-                //     ->columnSpanFull(),
-                // FileUpload::make('image')
-                //     ->image()
-                //     ->disk('public')
-                //     ->directory('news'),
-                // DateTimePicker::make('published_at')
-                //     ->default(now()),
-                // Toggle::make('is_active')
-                //     ->default(true)
-                //     ->required(),
+                TextInput::make('title')
+                    ->required()
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
+                TextInput::make('slug')
+                    ->required()
+                    ->unique(News::class, 'slug', ignoreRecord: true),
+                RichEditor::make('content')
+                    ->required()
+                    ->columnSpanFull(),
+                FileUpload::make('image')
+                    ->image()
+                    ->disk('public')
+                    ->directory('news'),
+                DateTimePicker::make('published_at')
+                    ->default(now()),
+                Toggle::make('is_active')
+                    ->default(true)
+                    ->required(),
             ]);
     }
 
@@ -62,36 +62,36 @@ class NewsResource extends Resource
         return $table
             ->recordTitleAttribute('title')
             ->columns([
-                // TextColumn::make('title')
-                //     ->searchable(),
-                // TextColumn::make('slug')
-                //     ->searchable(),
-                // ImageColumn::make('image'),
-                // TextColumn::make('published_at')
-                //     ->dateTime()
-                //     ->sortable(),
-                // IconColumn::make('is_active')
-                //     ->boolean(),
-                // TextColumn::make('created_at')
-                //     ->dateTime()
-                //     ->sortable()
-                //     ->toggleable(isToggledHiddenByDefault: true),
-                // TextColumn::make('updated_at')
-                //     ->dateTime()
-                //     ->sortable()
-                //     ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('title')
+                    ->searchable(),
+                TextColumn::make('slug')
+                    ->searchable(),
+                ImageColumn::make('image'),
+                TextColumn::make('published_at')
+                    ->dateTime()
+                    ->sortable(),
+                IconColumn::make('is_active')
+                    ->boolean(),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->recordActions([
-                // EditAction::make(),
-                // DeleteAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
-                // BulkActionGroup::make([
-                //     DeleteBulkAction::make(),
-                // ]),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
+                ]),
             ]);
     }
 
