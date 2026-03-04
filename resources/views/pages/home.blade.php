@@ -411,6 +411,51 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
+<!-- NEWS SECTION -->
+<section class="section">
+    <div class="container">
+        <div class="section-title fade-scroll text-center" style="margin-bottom: 30px;">
+            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ __('HUBUNGAN & INFORMASI') }}</span>
+            <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Berita Terbaru') }}</h2>
+        </div>
+
+        <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+            @forelse($news as $item)
+                <div class="bento-card fade-scroll" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 200px; position: relative;">
+                        @if($item->image)
+                            <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" style="width: 100%; height: 100%; object-fit: cover;">
+                        @else
+                            <div style="width: 100%; height: 100%; background: var(--slate-100); display: flex; align-items: center; justify-content: center; color: var(--slate-400);">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                        @endif
+                        <div style="position: absolute; top: 15px; right: 15px;">
+                             <span style="background: rgba(255,255,255,0.9); padding: 5px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; color: var(--primary);">{{ $item->published_at ? $item->published_at->format('d M Y') : $item->created_at->format('d M Y') }}</span>
+                        </div>
+                    </div>
+                    <div style="padding: 24px;">
+                        <h4 style="margin-bottom: 12px; line-height: 1.4;">{{ Str::limit($item->title, 60) }}</h4>
+                        <p style="font-size: 0.85rem; color: var(--slate-600); margin-bottom: 20px;">{{ Str::limit(strip_tags($item->content), 100) }}</p>
+                        <a href="{{ route('news.show', $item->slug) }}" style="color: var(--primary); text-decoration: none; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; gap: 5px;">
+                            {{ __('BACA SELENGKAPNYA') }}
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            @empty
+                <div class="bento-card" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                    <p style="color: var(--slate-600);">{{ __('Belum ada berita terbaru.') }}</p>
+                </div>
+            @endforelse
+        </div>
+
+        <div class="text-center" style="margin-top: 40px;">
+            <a href="{{ route('news.index') }}" class="btn btn-outline">{{ __('Lihat Semua Berita') }}</a>
+        </div>
+    </div>
+</section>
+
 <!-- CTA SECTION -->
 <section class="section" style="padding: 0 24px 40px;">
     <div class="bento-card red-box-animated" style="padding: 60px 40px; text-align: center; background: linear-gradient(135deg, var(--primary) 0%, #d32f2f 100%); border: none; border-radius: 40px; overflow: hidden; position: relative;">

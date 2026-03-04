@@ -15,7 +15,13 @@ class HomeController extends Controller
             
         $services = \App\Models\Service::limit(6)->get();
 
-        return view('pages.home', compact('sliders', 'services'));
+        $news = \App\Models\News::where('is_active', true)
+            ->where('published_at', '<=', now())
+            ->orderBy('published_at', 'desc')
+            ->limit(3)
+            ->get();
+
+        return view('pages.home', compact('sliders', 'services', 'news'));
     }
 
     public function storeContact(Request $request)

@@ -25,6 +25,9 @@ Route::post('/kontak', [ContactController::class, 'store'])
 Route::get('/lang/{locale}', [\App\Http\Controllers\LanguageController::class, 'switch'])
     ->name('lang.switch');
 
+Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{slug}', [\App\Http\Controllers\NewsController::class, 'show'])->name('news.show');
+
 Route::get('/test', function () {
     return 'OK';
 });
