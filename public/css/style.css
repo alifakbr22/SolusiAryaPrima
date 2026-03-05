@@ -1,6 +1,5 @@
 :root {
     --primary: #ee2e24;
-    /* Telkom Red */
     --primary-soft: rgba(238, 46, 36, 0.05);
     --secondary: #1a1a1a;
     --white: #ffffff;
@@ -20,6 +19,13 @@
 
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    /* FLUID TOKENS */
+    --h1-size: clamp(2.5rem, 8vw, 4.5rem);
+    --h2-size: clamp(2rem, 6vw, 3rem);
+    --h3-size: clamp(1.5rem, 4vw, 2.2rem);
+    --body-size: clamp(0.95rem, 2vw, 1.1rem);
+    --section-padding: clamp(60px, 10vw, 120px);
 }
 
 /* RESET */
@@ -37,6 +43,7 @@ body {
     background: var(--white);
     color: var(--slate-600);
     font-family: var(--font-body);
+    font-size: var(--body-size);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -53,11 +60,27 @@ h6 {
     font-weight: 700;
 }
 
+h1 {
+    font-size: var(--h1-size);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: var(--h2-size);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: var(--h3-size);
+}
+
 /* UTILITIES */
 .container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 var(--container-padding);
 }
 
 .bg-light-gradient {
@@ -100,7 +123,7 @@ h6 {
 }
 
 .section {
-    padding: 40px 0;
+    padding: var(--section-padding) 0;
     position: relative;
 }
 
@@ -186,15 +209,7 @@ h6 {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-@media (max-width: 992px) {
-    .nav-menu {
-        display: none;
-    }
 
-    .menu-toggle {
-        display: block !important;
-    }
-}
 
 .nav-wrapper {
     max-width: 1280px;
@@ -760,13 +775,7 @@ h6 {
     }
 }
 
-@media (max-width: 768px) {
-    .slider-arrow {
-        display: none;
-    }
 
-    /* Hide on mobile to prevent clutter */
-}
 
 .slider-dot {
     width: 12px;
@@ -1251,45 +1260,11 @@ h6 {
     color: #94a3b8;
 }
 
-@media (max-width: 992px) {
-    .footer-top {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-    }
-}
-
-@media (max-width: 640px) {
-    .footer-top {
-        grid-template-columns: 1fr;
-    }
-}
 
 .footer-copy {
     font-size: 0.85rem;
     color: #cbd5e1;
     opacity: 1;
-}
-
-@media (max-width: 768px) {
-    .footer-cutout {
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 20px 30px;
-        width: 80%;
-        text-align: center;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding-top: 60px;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
 }
 
 /* FOOTER */
@@ -1409,53 +1384,6 @@ footer {
     font-size: 1.5rem;
 }
 
-@media (max-width: 992px) {
-    .bento-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        padding: 40px;
-        display: none;
-        border-bottom: 1px solid var(--slate-200);
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-}
-
-@media (max-width: 640px) {
-    .bento-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 2.25rem;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-    }
-
-    .hero-visual {
-        display: none;
-    }
-}
 
 /* CONTACT FORM */
 .contact-form {
@@ -1518,113 +1446,168 @@ footer {
     transform: translateY(-4px) scale(0.98);
     transition: all 0.1s;
 }
-/* RESPONSIVE REFINEMENTS */
+
+/* Unified Responsive Architecture */
 @media (min-width: 1440px) {
     .container {
         max-width: 1400px;
     }
-    .hero h1 {
-        font-size: 5rem;
-    }
 }
 
-/* TV & Large Screens */
 @media (min-width: 1920px) {
     .container {
         max-width: 1800px;
     }
-    html {
-        font-size: 18px;
-    }
-    .hero h1 {
-        font-size: 6rem;
+
+    :root {
+        --h1-size: 6rem;
     }
 }
 
-/* Tablet Optimizations */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .bento-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .hero-split .hero-content {
-        max-width: 100%;
-        text-align: center;
-    }
+@media (max-width: 1024px) {
     .hero-split-content {
         flex-direction: column;
         align-items: center;
+        text-align: center;
+        gap: 40px;
     }
+
     .hero-visual-column {
         width: 100%;
-        margin-top: 40px;
+        margin-top: 0;
+    }
+
+    .hero-slider {
+        height: 350px;
+    }
+
+    .footer-top {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Mobile Polish */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 16px;
-    }
-    .hero {
-        padding: 140px 0 80px;
-    }
-    .hero h1 {
-        font-size: 2rem;
-        letter-spacing: -1px;
-    }
-    .btn {
-        width: 100%;
-        padding: 12px 20px;
-    }
+@media (max-width: 768px) {
     .navbar {
-        width: calc(100% - 20px);
+        top: 0;
+        width: 100%;
+        border-radius: 0;
+        padding: 5px 0;
     }
+
+    .nav-wrapper {
+        padding: 10px 20px;
+    }
+
     .logo-image {
-        height: 36px;
+        height: 32px;
     }
-    .section {
-        padding: 60px 0;
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 15px;
     }
-    .news-grid {
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .footer-top {
         grid-template-columns: 1fr;
     }
 }
 
-/* Fix for overlapping elements on small heights */
-@media (max-height: 700px) and (min-width: 992px) {
-    .hero {
-        padding: 120px 0 60px;
-    }
+@media (max-width: 480px) {
     .hero-slider {
-        height: 300px;
+        height: 250px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .red-box-animated {
+        padding: 40px 20px !important;
+        border-radius: 20px !important;
+    }
+}
+/* MOBILE DROPDOWN REFINEMENTS */
+@media (max-width: 768px) {
+    .nav-item.has-dropdown .dropdown-menu {
+        position: relative;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        visibility: visible;
+        display: none; /* Toggle via JS or click */
+        box-shadow: none;
+        background: transparent;
+        padding-left: 20px;
+        min-width: 100%;
+        border: none;
+    }
+    
+    .nav-item.has-dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-item {
+        padding: 10px 0;
+    }
+    
+    .dropdown-title {
+        font-size: 1.1rem;
+    }
+    
+    .dropdown-desc {
+        display: none; /* Hide descriptions on mobile for cleaner look */
+    }
+    
+    .hero-split-content {
+        padding: 0 10px;
     }
 }
 
-/* Accessibility & Hover */
-@media (hover: none) {
-    .btn:hover {
-        transform: none;
-    }
-    .glass-card:hover {
-        transform: none;
-    }
-    .bento-card:hover {
-        transform: none;
-    }
+/* FOOTER LOGO RESPONSIVENESS */
+.footer-logo-wrapper {
+    background: #f8fafc;
+    padding: 35px 70px;
+    border-radius: 0 0 40px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* ADDITIONAL FIXES FOR OVERFLOW AND GRID */
-@media (max-width: 400px) {
-    .bento-grid {
-        grid-template-columns: 1fr !important;
+.footer-logo-img {
+    height: 55px;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .footer-logo-wrapper {
+        position: relative;
+        width: 100%;
+        border-radius: 0;
+        padding: 30px 20px;
+        min-width: 0;
     }
-    .hero h1 {
-        font-size: 1.8rem !important;
+    .footer-logo-img {
+        height: 40px;
     }
-    .nav-extra {
-        gap: 10px;
-    }
-    .lang-switcher {
-        font-size: 0.65rem;
+    .footer-brand {
+        padding-top: 40px !important;
     }
 }

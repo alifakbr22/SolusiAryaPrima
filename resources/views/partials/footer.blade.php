@@ -1,11 +1,13 @@
 <footer class="footer-modern">
-    <a href="/" class="logo" style="display: inline-flex; align-items: center; justify-content: center; background: #f8fafc; padding: 35px 70px; border-radius: 0 0 40px 0; position: absolute; top: 0; left: 0; z-index: 1001; box-shadow: none; min-width: 320px;">
-        @if(isset($siteSettings) && $siteSettings->logo)
-            <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="{{ $siteSettings->company_name ?? 'Solusi Arya Prima' }}" style="height: 55px; width: auto;">
-        @else
-            <img src="{{ asset('images/logo.png') }}" alt="Solusi Arya Prima" style="height: 55px; width: auto;">
-        @endif
-    </a>
+    <div class="footer-logo-wrapper">
+        <a href="/" class="logo">
+            @if(isset($siteSettings) && $siteSettings->logo)
+                <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="{{ $siteSettings->company_name ?? 'Solusi Arya Prima' }}" class="footer-logo-img">
+            @else
+                <img src="{{ asset('images/logo.png') }}" alt="Solusi Arya Prima" class="footer-logo-img">
+            @endif
+        </a>
+    </div>
     <div class="container">
         <div class="footer-top">
             <div class="footer-brand" style="padding-top: 100px;">
