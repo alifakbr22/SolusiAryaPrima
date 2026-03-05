@@ -1518,3 +1518,97 @@ footer {
     transform: translateY(-4px) scale(0.98);
     transition: all 0.1s;
 }
+/* RESPONSIVE REFINEMENTS */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+    .hero h1 {
+        font-size: 5rem;
+    }
+}
+
+/* TV & Large Screens */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1800px;
+    }
+    html {
+        font-size: 18px;
+    }
+    .hero h1 {
+        font-size: 6rem;
+    }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-split .hero-content {
+        max-width: 100%;
+        text-align: center;
+    }
+    .hero-split-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-visual-column {
+        width: 100%;
+        margin-top: 40px;
+    }
+}
+
+/* Mobile Polish */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    .hero {
+        padding: 140px 0 80px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+        letter-spacing: -1px;
+    }
+    .btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+    .navbar {
+        width: calc(100% - 20px);
+    }
+    .logo-image {
+        height: 36px;
+    }
+    .section {
+        padding: 60px 0;
+    }
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Fix for overlapping elements on small heights */
+@media (max-height: 700px) and (min-width: 992px) {
+    .hero {
+        padding: 120px 0 60px;
+    }
+    .hero-slider {
+        height: 300px;
+    }
+}
+
+/* Accessibility & Hover */
+@media (hover: none) {
+    .btn:hover {
+        transform: none;
+    }
+    .glass-card:hover {
+        transform: none;
+    }
+    .bento-card:hover {
+        transform: none;
+    }
+}
