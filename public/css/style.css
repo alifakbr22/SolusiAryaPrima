@@ -1612,3 +1612,19 @@ footer {
         transform: none;
     }
 }
+
+/* ADDITIONAL FIXES FOR OVERFLOW AND GRID */
+@media (max-width: 400px) {
+    .bento-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .hero h1 {
+        font-size: 1.8rem !important;
+    }
+    .nav-extra {
+        gap: 10px;
+    }
+    .lang-switcher {
+        font-size: 0.65rem;
+    }
+}

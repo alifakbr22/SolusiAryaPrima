@@ -114,7 +114,7 @@
                                         <div class="mockup-dot" style="background: #ffbd2e;"></div>
                                         <div class="mockup-dot" style="background: #27c93f;"></div>
                                     </div>
-                                    <div style="display: grid; grid-template-columns: 100px 1fr; gap: 20px;">
+                                    <div class="mockup-grid-wrapper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 20px;">
                                         <div class="mockup-content-skeleton">
                                             <div class="skeleton-line" style="width: 100%;"></div>
                                             <div class="skeleton-line" style="width: 80%;"></div>
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Infrastruktur Siap Masa Depan') }}</h2>
         </div>
 
-        <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
             @if(isset($services) && $services->count() > 0)
                 @foreach($services as $index => $result)
                     @php
