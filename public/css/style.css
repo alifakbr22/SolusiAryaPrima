@@ -21,11 +21,12 @@
     --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
 
     /* FLUID TOKENS */
-    --h1-size: clamp(2.5rem, 8vw, 4.5rem);
-    --h2-size: clamp(2rem, 6vw, 3rem);
+    --h1-size: clamp(2rem, 5vw, 4rem);
+    --h2-size: clamp(1.75rem, 4vw, 2.5rem);
     --h3-size: clamp(1.5rem, 4vw, 2.2rem);
     --body-size: clamp(0.95rem, 2vw, 1.1rem);
     --section-padding: clamp(60px, 10vw, 120px);
+    --container-padding: clamp(16px, 4vw, 40px);
 }
 
 /* RESET */
@@ -1539,6 +1540,7 @@ footer {
         border-radius: 20px !important;
     }
 }
+
 /* MOBILE DROPDOWN REFINEMENTS */
 @media (max-width: 768px) {
     .nav-item.has-dropdown .dropdown-menu {
@@ -1547,30 +1549,32 @@ footer {
         left: 0;
         opacity: 1;
         visibility: visible;
-        display: none; /* Toggle via JS or click */
+        display: none;
+        /* Toggle via JS or click */
         box-shadow: none;
         background: transparent;
         padding-left: 20px;
         min-width: 100%;
         border: none;
     }
-    
+
     .nav-item.has-dropdown.active .dropdown-menu {
         display: block;
     }
-    
+
     .dropdown-item {
         padding: 10px 0;
     }
-    
+
     .dropdown-title {
         font-size: 1.1rem;
     }
-    
+
     .dropdown-desc {
-        display: none; /* Hide descriptions on mobile for cleaner look */
+        display: none;
+        /* Hide descriptions on mobile for cleaner look */
     }
-    
+
     .hero-split-content {
         padding: 0 10px;
     }
@@ -1604,9 +1608,11 @@ footer {
         padding: 30px 20px;
         min-width: 0;
     }
+
     .footer-logo-img {
         height: 40px;
     }
+
     .footer-brand {
         padding-top: 40px !important;
     }
