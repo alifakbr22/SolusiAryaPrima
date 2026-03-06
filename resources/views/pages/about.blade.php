@@ -15,7 +15,7 @@
 
 <section class="section">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: flex-start;">
+        <div class="grid-2-cols responsive-gap align-start">
             <div class="fade-scroll">
                 <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ __('SEJARAH PERUSAHAAN') }}</span>
                 <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 12px; margin-bottom: 40px;">{{ __('Evolusi Industri') }}</h2>
@@ -82,7 +82,7 @@
             <p style="color: var(--slate-600); max-width: 700px; margin: 24px auto 0;">{{ __('Filosofi operasional mendasar yang mendorong komitmen kami terhadap keunggulan industri.') }}</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        <div class="bento-grid">
             @php
                 $premmier = [
                     ['key' => 'P', 'label' => __('PROFESIONAL'), 'desc' => __('Menjunjung tinggi standar teknis dan etika kerja tertinggi.')],
@@ -112,7 +112,7 @@
 <section class="section" style="padding: 0 24px 80px;">
     <div class="bento-card red-box-animated" style="padding: 80px 48px; background: linear-gradient(135deg, var(--primary) 0%, #d32f2f 100%); border: none; border-radius: 40px; overflow: hidden; position: relative;">
         <div class="container" style="position: relative; z-index: 2;">
-            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center;">
+            <div class="grid-2-cols responsive-gap align-center text-center-sm">
                 <div class="fade-scroll">
                     <span style="color: white; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">{{ __('VALIDASI OPERASIONAL') }}</span>
                     <h2 style="font-size: 2.5rem; margin: 16px 0 24px; color: white;">{{ __('Budaya dalam Aksi') }}</h2>
@@ -141,7 +141,7 @@
             <h2 class="text-gradient" style="font-size: 2.5rem; margin: 10px 0 0;">{{ __('Dewan Direksi') }}</h2>
         </div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+        <div class="bento-grid">
             @php
                 $leaders = [
                     ['name' => 'ASEP MOCHAMAD ISHAK', 'role' => __('Mitra Pendiri & Direktur')],

@@ -20,7 +20,7 @@
             <h2 style="margin-top: 12px;">Semarang</h2>
         </div>
 
-        <div class="bento-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="grid-2-cols" style="margin-top: 50px; gap: 20px;">
             <div class="bento-card" style="grid-column: span 1;">
                 <div class="icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 7v1a3 3 0 006 0V7m0 1a3 3 0 006 0V7m0 1a3 3 0 006 0V7M4 21V4a2 2 0 012-2h12a2 2 0 012 2v17M9 21V12h6v9"/></svg>
@@ -116,7 +116,7 @@
             <h2 style="margin-top: 12px;">{{ __('Layanan Nasional') }}</h2>
         </div>
 
-        <div class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
+        <div class="responsive-grid-200" style="margin-top: 40px;">
             @if(isset($branches) && $branches->count() > 0)
                 @foreach($branches as $branch)
                 <div class="bento-card fade-scroll">
@@ -137,7 +137,7 @@
 <section class="section" style="padding: 0 24px 40px;">
     <div class="bento-card red-box-animated" style="padding: 80px 48px; background: linear-gradient(135deg, var(--primary) 0%, #d32f2f 100%); border: none; border-radius: 40px; overflow: hidden; position: relative;">
         <div class="container" style="position: relative; z-index: 2;">
-            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;">
+            <div class="grid-2-cols responsive-gap align-center text-center-sm">
                 <div class="fade-scroll" style="color: white;">
                     <span style="color: rgba(255,255,255,0.8); font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">{{ __('DISTRIBUSI NASIONAL') }}</span>
                     <h2 style="font-size: 2.5rem; margin: 16px 0 24px; color: white;">{{ __('Jangkauan Distribusi Nasional') }}</h2>

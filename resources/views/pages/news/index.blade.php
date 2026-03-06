@@ -15,7 +15,7 @@
 
 <section class="section">
     <div class="container">
-        <div class="bento-grid" style="grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px;">
+        <div class="bento-grid news-grid">
             @forelse($news as $item)
                 <div class="bento-card fade-scroll" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
                     <div style="height: 240px; position: relative; overflow: hidden;">

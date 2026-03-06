@@ -20,7 +20,7 @@
             <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Mitra Institusional') }}</h2>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        <div class="bento-grid">
             @if(isset($portfolios) && $portfolios->count() > 0)
                 @foreach($portfolios as $index => $client)
                 <div class="bento-card fade-scroll stagger-{{ ($index % 3) + 1 }}" style="padding: 0; border-left: 4px solid var(--primary); overflow: hidden; display: flex; flex-direction: column;">
@@ -59,7 +59,7 @@
             <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Testimoni Mitra') }}</h2>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 32px;">
+        <div class="bento-grid">
             <div class="bento-card fade-scroll" style="padding: 48px; position: relative; background: white; border-top: 4px solid var(--primary);">
                 <div style="font-size: 4rem; position: absolute; top: 20px; right: 40px; color: var(--primary); opacity: 0.1;">"</div>
                 <p style="font-style: italic; color: var(--slate-700); font-size: 1.15rem; line-height: 1.8; margin-bottom: 32px;">
@@ -100,7 +100,7 @@
                 <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Metrik Operasional') }}</h2>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px;">
+            <div class="stats-grid">
                 @php
                     $stats = [
                         ['val' => '1.2jt+', 'label' => __('Unit Didistribusikan')],

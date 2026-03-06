@@ -42,7 +42,7 @@
             <div class="bento-card large fade-scroll" style="background: white; border-top: 4px solid var(--primary);">
                 <div style="font-weight: 800; color: var(--primary); margin-bottom: 24px; font-size: 0.8rem;">{{ __('REGISTRASI SISTEM') }}</div>
                 <h3 style="margin-bottom: 32px;">{{ __('Kepatuhan Institusional') }}</h3>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+                <div class="grid-2-cols" style="gap: 24px;">
                     @php
                         $legal = [
                             __('NPWP Perusahaan'), __('PKP (Pengusaha Kena Pajak)'), __('SBU Terakreditasi'), __('NIB Terverifikasi'), __('SKPP Kemenkumham'), __('TDP & SIUP')

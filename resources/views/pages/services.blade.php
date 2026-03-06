@@ -51,7 +51,7 @@
             <p style="color: var(--slate-600); max-width: 600px; margin: 24px auto 0; text-align: center;">{{ __('Saluran pengadaan digital legal dan transparan yang terintegrasi dengan standar tata kelola nasional.') }}</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+        <div class="bento-grid">
             <div class="bento-card fade-scroll" style="border-top: 4px solid var(--primary);">
                 <div style="font-weight: 800; color: var(--primary); margin-bottom: 24px; font-size: 0.8rem;">{{ __('E-KATALOG') }}</div>
                 <h4 style="margin-bottom: 16px;">{{ __('LKPP V.6') }}</h4>

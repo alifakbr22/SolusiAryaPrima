@@ -40,7 +40,7 @@
 
             <div style="margin-top: 80px; padding-top: 48px; border-top: 1px solid var(--slate-100);">
                 <h3 style="margin-bottom: 32px;">{{ __('Berita Terkait') }}</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                <div class="responsive-grid-240" style="gap: 24px;">
                     @foreach($latestNews as $news)
                         <a href="{{ route('news.show', $news->slug) }}" class="bento-card" style="text-decoration: none; display: block; border: 1px solid var(--slate-100);">
                             <h4 style="font-size: 1.1rem; margin-bottom: 12px; line-height: 1.4; color: var(--slate-900);">{{ $news->title }}</h4>

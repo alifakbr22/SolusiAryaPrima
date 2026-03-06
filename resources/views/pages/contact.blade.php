@@ -28,7 +28,7 @@
 
                 <form action="{{ route('contact.store') }}" method="POST" style="display: flex; flex-direction: column; gap: 24px;">
                     @csrf
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+                    <div class="responsive-grid-240" style="gap: 24px;">
                         <input type="text" name="name" placeholder="{{ __('Nama Lengkap') }}" required style="padding: 20px; border-radius: 12px; border: 1px solid var(--slate-200); background: var(--white); color: var(--slate-800); outline: none;">
                         <input type="email" name="email" placeholder="{{ __('Alamat Email') }}" required style="padding: 20px; border-radius: 12px; border: 1px solid var(--slate-200); background: var(--white); color: var(--slate-800); outline: none;">
                     </div>
@@ -64,14 +64,14 @@
             </div>
 
             <!-- Map -->
-            <div class="bento-card fade-scroll" style="grid-column: span 2; padding: 0; min-height: 400px;">
+            <div class="bento-card large fade-scroll" style="padding: 0; min-height: 400px; grid-column: span 2;">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.0!2d110.413294!3d-7.005702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b6fb3bddd77%3A0xb199b012abeed485!2sSolusi%20Arya%20Prima%20(Premmiere%20Store)!5e0!3m2!1sen!2sid!4v1740474600000!5m2!1sen!2sid" 
                     width="100%" height="100%" style="border:0; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             <!-- Emergency -->
-            <div class="bento-card fade-scroll" style="grid-column: span 4; border-top: 4px solid var(--primary); background: white;">
+            <div class="bento-card fade-scroll" style="grid-column: 1 / -1; border-top: 4px solid var(--primary); background: white;">
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; flex-wrap: wrap; gap: 24px;">
                     <div>
                         <h4 style="margin-bottom: 8px;">{{ __('LAYANAN PRIORITAS') }}</h4>

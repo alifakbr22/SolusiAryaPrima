@@ -114,7 +114,7 @@
                                         <div class="mockup-dot" style="background: #ffbd2e;"></div>
                                         <div class="mockup-dot" style="background: #27c93f;"></div>
                                     </div>
-                                    <div class="mockup-grid-wrapper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 20px;">
+                                    <div class="mockup-grid-wrapper" style="gap: 20px;">
                                         <div class="mockup-content-skeleton">
                                             <div class="skeleton-line" style="width: 100%;"></div>
                                             <div class="skeleton-line" style="width: 80%;"></div>
@@ -293,8 +293,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- VISI MISI SECTION -->
 <section class="section">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: flex-start;">
-            <div class="fade-scroll stagger-1">
+        <div class="grid-2-cols responsive-gap align-start">
+            <div class="fade-scroll stagger-1" style="max-width: 100%;">
                 <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ isset($siteSettings) && $siteSettings->company_name ? strtoupper($siteSettings->company_name) : 'CV SOLUSI ARYA PRIMA' }}</span>
                 <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 12px; margin-bottom: 32px;">Visi & Misi Perusahaan</h2>
                 <div class="bento-card" style="padding: 48px; border-left: 4px solid var(--primary);">
@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Cerita Sukses Klien') }}</h2>
         </div>
 
-        <div class="bento-grid" style="grid-template-columns: repeat(2, 1fr); gap: 24px;">
+        <div class="bento-grid grid-2-cols" style="gap: 24px;">
             <div class="bento-card fade-scroll" style="padding: 40px;">
                 <div style="color: var(--primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 24px;">{{ __('TESTIMONI #01') }}</div>
                 <p style="font-style: italic; color: var(--slate-600); line-height: 1.8; font-size: 1.1rem; margin-bottom: 32px;">"{{ __('CV Solusi Arya Prima memberikan layanan profesional tingkat tinggi. Solusi infrastrukturnya diterapkan dengan presisi dan ketepatan waktu yang luar biasa.') }}"</p>
@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- LEGAL & ACCREDITATION SECTION -->
 <section class="section">
     <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
+        <div class="responsive-grid-200">
             <div class="bento-card fade-scroll stagger-1" style="padding: 32px; text-align: center;">
                 <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 8px;">ISO 9001:2015</h3>
                 <p style="font-size: 0.75rem; color: var(--slate-500); text-transform: uppercase; font-weight: 700;">{{ __('Manajemen Mutu') }}</p>
@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Proses Kolaborasi Strategis') }}</h2>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+        <div class="responsive-grid-240">
             @php
                 $steps = [
                     ['title' => __('Audit Teknis'), 'desc' => __('Analisis mendalam terhadap infrastruktur TI yang ada dan kebutuhan spesifik bisnis.')],
@@ -419,7 +419,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Berita Terbaru') }}</h2>
         </div>
 
-        <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        <div class="bento-grid news-grid">
             @forelse($news as $item)
                 <div class="bento-card fade-scroll" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
                     <div style="height: 200px; position: relative;">
