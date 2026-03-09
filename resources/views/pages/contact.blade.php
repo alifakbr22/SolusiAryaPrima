@@ -32,7 +32,7 @@
                         <input type="text" name="name" placeholder="{{ __('Nama Lengkap') }}" required>
                         <input type="email" name="email" placeholder="{{ __('Alamat Email') }}" required>
                     </div>
-                    <input type="text" name="subject" placeholder="{{ __('Subjek Pesan') }}">
+                    <input type="text" name="whatsapp" placeholder="{{ __('Nomor WhatsApp') }}" required>
                     <textarea name="message" placeholder="{{ __('Isi Pesan Anda') }}" rows="6" required></textarea>
                     <button type="submit" class="btn btn-solid" style="padding: 20px; font-weight: 700; width: 100%;">{{ __('Kirim Pesan') }}</button>
                 </form>

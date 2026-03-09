@@ -14,7 +14,8 @@ class ContactInfolist
                 TextEntry::make('name'),
                 TextEntry::make('email')
                     ->label('Email address'),
-                TextEntry::make('subject')
+                TextEntry::make('whatsapp')
+                    ->label('WhatsApp Number')
                     ->placeholder('-'),
                 TextEntry::make('message')
                     ->columnSpanFull(),

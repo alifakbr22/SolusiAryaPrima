@@ -18,8 +18,9 @@ class ContactForm
                     ->label('Email address')
                     ->email()
                     ->required(),
-                TextInput::make('subject')
-                    ->default(null),
+                TextInput::make('whatsapp')
+                    ->label('WhatsApp Number')
+                    ->required(),
                 Textarea::make('message')
                     ->required()
                     ->columnSpanFull(),

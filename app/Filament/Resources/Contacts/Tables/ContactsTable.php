@@ -20,7 +20,8 @@ class ContactsTable
                 TextColumn::make('email')
                     ->label('Email address')
                     ->searchable(),
-                TextColumn::make('subject')
+                TextColumn::make('whatsapp')
+                    ->label('WhatsApp Number')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
