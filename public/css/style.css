@@ -777,14 +777,15 @@ h3 {
     content: '';
     width: 6px;
     height: 6px;
-    background: var(--slate-400);
+    background: transparent !important;
+    border: 2px solid rgba(255, 255, 255, 0.5) !important;
     border-radius: 50%;
 }
 
 .slider-dot.active {
-    background: var(--white) !important;
-    border-color: var(--primary) !important;
-    box-shadow: 0 0 10px rgba(238, 46, 36, 0.2) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: white !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
 }
 
 .slider-dot.active::after {
@@ -798,26 +799,25 @@ h3 {
     transform: translateY(-50%);
     width: 44px;
     height: 44px;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 30;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    color: var(--slate-600);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.slider-arrow:hover {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-    transform: translateY(-50%) scale(1.1);
+.slider-arrow:hover,
+.slider-arrow:active {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-50%) scale(1.05);
 }
 
 .slider-arrow.prev {

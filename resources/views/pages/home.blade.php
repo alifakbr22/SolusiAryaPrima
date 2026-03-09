@@ -7,27 +7,29 @@
 <style>
 
     .slider-dot {
-        width: 14px !important;
-        height: 14px !important;
-        background: var(--slate-100) !important;
-        border: 2px solid var(--slate-300) !important;
+        width: 12px !important;
+        height: 12px !important;
+        background: transparent !important;
+        border: 2px solid rgba(255, 255, 255, 0.5) !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        transition: all 0.3s ease;
     }
 
     .slider-dot::after {
         content: '';
-        width: 6px;
-        height: 6px;
-        background: var(--slate-400);
+        width: 4px;
+        height: 4px;
+        background: transparent;
         border-radius: 50%;
+        transition: all 0.3s ease;
     }
 
     .slider-dot.active {
-        background: var(--white) !important;
-        border-color: var(--primary) !important;
-        box-shadow: 0 0 10px rgba(238, 46, 36, 0.2) !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        border-color: white !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
     }
 
     .slider-dot.active::after {
