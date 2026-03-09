@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 10px;">{{ __('Infrastruktur Siap Masa Depan') }}</h2>
         </div>
 
-        <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+        <div class="bento-grid" style="gap: 24px;">
             @if(isset($services) && $services->count() > 0)
                 @foreach($services as $index => $result)
                     @php

@@ -79,6 +79,26 @@
                     navMenu.classList.toggle('active');
                 });
             }
+
+            // Mobile Dropdown Toggle (for items like "Tentang Kami")
+            const dropdownParents = document.querySelectorAll('.nav-item.has-dropdown');
+            dropdownParents.forEach(item => {
+                const link = item.querySelector('.nav-link');
+                if (link) {
+                    link.addEventListener('click', (e) => {
+                        // Only intercept on mobile (when menu toggle is visible)
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            // Close other open dropdowns
+                            dropdownParents.forEach(other => {
+                                if (other !== item) other.classList.remove('active');
+                            });
+                            item.classList.toggle('active');
+                        }
+                    });
+                }
+            });
         });
     </script>
     @stack('scripts')
