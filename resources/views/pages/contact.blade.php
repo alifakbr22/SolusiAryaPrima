@@ -84,7 +84,7 @@
                             <div style="font-size: 1.5rem; font-weight: 800; color: var(--primary);">{{ isset($siteSettings) && $siteSettings->phone ? $siteSettings->phone : '0821-3763-9224' }}</div>
                         </div>
                         <div style="font-size: 0.8rem; color: var(--slate-500); font-weight: 600; word-break: break-all;">{{ isset($siteSettings) && $siteSettings->email ? strtoupper($siteSettings->email) : 'SOLUSIARYAPRIMA@PREMMIERE.CO.ID' }}</div>
-                        <a href="https://wa.me/6282137639224" target="_blank" class="btn btn-solid" style="width: 100%; margin-top: 24px;">{{ __('Hubungi via WhatsApp') }}</a>
+                        <a href="https://api.whatsapp.com/send/?phone=628112908538&text&type=phone_number&app_absent=0" target="_blank" class="btn btn-solid" style="width: 100%; margin-top: 24px;">{{ __('Hubungi via WhatsApp') }}</a>
                     </div>
                 </div>
             </div>

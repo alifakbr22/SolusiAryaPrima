@@ -143,7 +143,7 @@
                     <h2 style="font-size: 2.5rem; margin: 16px 0 24px; color: white;">{{ __('Jangkauan Distribusi Nasional') }}</h2>
                     <p style="color: rgba(255,255,255,0.9); line-height: 1.8; margin-bottom: 40px; font-size: 1.1rem;">{{ __('Dengan titik distribusi yang tersebar dari Sumatera hingga Kalimantan, kami menjamin kecepatan pengiriman dan keamanan barang sampai ke lokasi tujuan.') }}</p>
                     <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                        <a href="https://wa.me/6282137639224" target="_blank" class="btn btn-white">{{ __('Hubungi Via WhatsApp') }}</a>
+                        <a href="https://api.whatsapp.com/send/?phone=628112908538&text&type=phone_number&app_absent=0" target="_blank" class="btn btn-white">{{ __('Hubungi Via WhatsApp') }}</a>
                         <a href="{{ route('contact') }}" class="btn btn-light-outline">{{ __('Kirim Penawaran') }}</a>
                     </div>
                 </div>
