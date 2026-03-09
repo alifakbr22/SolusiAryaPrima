@@ -293,13 +293,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- VISI MISI SECTION -->
 <section class="section">
     <div class="container">
-        <div class="grid-2-cols responsive-gap align-start">
+        <!-- DESKTOP: 2 kolom (Visi kiri, Misi kanan) -->
+        <div class="grid-2-cols responsive-gap align-start visi-misi-desktop">
             <div class="fade-scroll stagger-1" style="max-width: 100%;">
                 <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ isset($siteSettings) && $siteSettings->company_name ? strtoupper($siteSettings->company_name) : 'CV SOLUSI ARYA PRIMA' }}</span>
                 <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 12px; margin-bottom: 32px;">Visi & Misi Perusahaan</h2>
                 <div class="bento-card" style="padding: 48px; border-left: 4px solid var(--primary);">
-                    <h4 style="color: var(--primary); margin-bottom: 20px; font-size: 0.9rem; text-transform: uppercase;">VISI KAMI</h4>
-                    <p style="font-style: italic; color: var(--slate-700); line-height: 1.8; font-size: 1.2rem;">"{{ isset($siteSettings) && $siteSettings->vision ? $siteSettings->vision : 'Menjadi Pemenang dalam kegiatan pengadaan barang dan jasa sesuai dengan Norma yang berlaku.' }}"</p>
+                    <h4 style="color: var(--primary); margin-bottom: 20px; font-size: 0.9rem; text-transform: uppercase;">{{ __('VISI KAMI') }}</h4>
+                    <p style="font-style: italic; color: var(--slate-700); line-height: 1.8; font-size: 1.2rem;">"{{ isset($siteSettings) && $siteSettings->vision ? $siteSettings->vision : __('Menjadi Pemenang dalam kegiatan pengadaan barang dan jasa sesuai dengan Norma yang berlaku.') }}"</p>
                 </div>
             </div>
             <div class="fade-scroll stagger-2">
@@ -309,11 +310,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         $missions = isset($siteSettings) && $siteSettings->mission 
                             ? array_filter(explode("\n", str_replace("\r", "", $siteSettings->mission)))
                             : [
-                                'Memenuhi kebutuhan pengadaan barang/jasa di bidang solusi Teknologi Informasi',
-                                'Menyelesaikan kegiatan dengan perhitungan tepat, barang sesuai, mutu terbaik',
-                                'Menjalin hubungan baik dan berkesinambungan dengan seluruh mitra kerja',
-                                'Menciptakan lapangan pekerjaan dan mendidik setiap karyawan',
-                                'Mengembangkan potensi karyawan untuk kesejahteraan yang baik'
+                                __('Memenuhi kebutuhan pengadaan barang/jasa di bidang solusi Teknologi Informasi'),
+                                __('Menyelesaikan kegiatan dengan perhitungan tepat, barang sesuai, mutu terbaik'),
+                                __('Menjalin hubungan baik dan berkesinambungan dengan seluruh mitra kerja'),
+                                __('Menciptakan lapangan pekerjaan dan mendidik setiap karyawan'),
+                                __('Mengembangkan potensi karyawan untuk kesejahteraan yang baik')
                             ];
                     @endphp
                     @foreach($missions as $index => $mission)
@@ -323,6 +324,26 @@ document.addEventListener('DOMContentLoaded', function() {
                     </li>
                     @endforeach
                 </ul>
+            </div>
+        </div>
+
+        <!-- MOBILE: Visi + Misi gabung dalam satu card -->
+        <div class="visi-misi-mobile fade-scroll">
+            <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">{{ isset($siteSettings) && $siteSettings->company_name ? strtoupper($siteSettings->company_name) : 'CV SOLUSI ARYA PRIMA' }}</span>
+            <h2 class="text-gradient" style="font-size: 2.5rem; margin-top: 12px; margin-bottom: 32px;">Visi & Misi Perusahaan</h2>
+            <div class="bento-card" style="padding: 28px 22px; border-left: 4px solid var(--primary); background: white;">
+                <div style="margin-bottom: 32px;">
+                    <h4 style="color: var(--primary); margin-bottom: 16px; font-size: 0.9rem; text-transform: uppercase;">{{ __('VISI KAMI') }}</h4>
+                    <p style="font-style: italic; color: var(--slate-700); line-height: 1.8; font-size: 1.05rem;">"{{ isset($siteSettings) && $siteSettings->vision ? $siteSettings->vision : __('Menjadi Pemenang dalam kegiatan pengadaan barang dan jasa sesuai dengan Norma yang berlaku.') }}"</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary); margin-bottom: 16px; font-size: 0.9rem; text-transform: uppercase;">{{ __('MISI KAMI') }}</h4>
+                    <ul style="list-style: none; padding: 0; font-size: 0.95rem; color: var(--slate-600); display: flex; flex-direction: column; gap: 14px;">
+                        @foreach($missions as $mission)
+                        <li style="display: flex; gap: 12px;"><span style="color: var(--primary); font-weight: 800;">✓</span> {{ trim($mission) }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

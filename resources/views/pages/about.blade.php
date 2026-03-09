@@ -145,7 +145,7 @@
             @php
                 $leaders = [
                     ['name' => 'ASEP MOCHAMAD ISHAK', 'role' => __('Mitra Pendiri & Direktur')],
-                    ['name' => 'MONGGIARTO HARJOJOWINOTO', 'role' => __('Mitra Pendiri & Komisaris')]
+                    ['name' => 'ROBERTUS HONGGIARTO', 'role' => __('Mitra Pendiri & Komisaris')]
                 ];
             @endphp
             @foreach($leaders as $index => $leader)

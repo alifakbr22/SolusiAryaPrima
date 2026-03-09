@@ -56,7 +56,7 @@
                 <div style="font-weight: 800; color: var(--primary); margin-bottom: 24px; font-size: 0.8rem;">{{ __('E-KATALOG') }}</div>
                 <h4 style="margin-bottom: 16px;">{{ __('LKPP V.6') }}</h4>
                 <p style="font-size: 0.9rem; color: var(--slate-600); line-height: 1.8; margin-bottom: 32px;">{{ __('Portal pengadaan resmi pemerintah untuk akuisisi langsung dan audit teknis yang transparan.') }}</p>
-                <a href="https://e-katalog.lkpp.go.id/" target="_blank" class="btn btn-solid" style="width: 100%;">{{ __('Akses Portal') }}</a>
+                <a href="https://www.lkpp.go.id/read/bu/katalog-elektronik-v-6-katalisator-integrasi-pengadaan-dan-pembayaran-dalam-satu-dashboard" target="_blank" class="btn btn-solid" style="width: 100%;">{{ __('Akses Portal') }}</a>
             </div>
 
             <div class="bento-card fade-scroll" style="border-top: 4px solid var(--primary);">
