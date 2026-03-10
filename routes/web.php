@@ -31,3 +31,12 @@ Route::get('/news/{slug}', [\App\Http\Controllers\NewsController::class, 'show']
 Route::get('/test', function () {
     return 'OK';
 });
+
+Route::get('/run-migrations-live', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        return 'Migrasi berhasil! Database sudah diperbarui. <br><br> Silakan coba kirim pesan kontak lagi: <a href="/kontak">Buka Halaman Kontak</a>';
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
