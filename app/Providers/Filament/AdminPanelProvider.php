@@ -28,6 +28,8 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->brandName('SAPA Admin')
+            ->brandLogo(asset('sap-favicon.png'))
+            ->favicon(asset('sap-favicon.png'))
             ->login()
             ->colors([
                 'primary' => Color::Amber,

@@ -207,6 +207,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Touch Events for Swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const sliderContainer = document.getElementById('heroSlider');
+    
+    if (sliderContainer) {
+        sliderContainer.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        sliderContainer.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+    }
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchEndX < touchStartX - swipeThreshold) {
+            nextSlide();
+            startAutoSlide();
+        }
+        if (touchEndX > touchStartX + swipeThreshold) {
+            prevSlide();
+            startAutoSlide();
+        }
+    }
+
     startAutoSlide();
 });
 </script>
