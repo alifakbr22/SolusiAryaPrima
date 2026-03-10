@@ -24,8 +24,6 @@ class SliderForm
                     ->disk('public')
                     ->directory('sliders')
                     ->required(),
-                TextInput::make('button_text')
-                    ->default(null),
                 TextInput::make('button_link')
                     ->default(null),
                 TextInput::make('order')

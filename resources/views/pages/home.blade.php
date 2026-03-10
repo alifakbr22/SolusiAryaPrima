@@ -67,19 +67,19 @@
                     </div>
 
                     @forelse($sliders as $index => $slider)
-                    <div class="hero-slide {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}">
-                        <div class="hero-visual">
-                            @php
-                                $isImage = $slider->image && preg_match('/\.(jpg|jpeg|png|webp|svg|gif)$/i', $slider->image);
-                            @endphp
+                    <div class="hero-slide {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}" style="position: relative;">
+                        @php
+                            $isImage = $slider->image && preg_match('/\.(jpg|jpeg|png|webp|svg|gif)$/i', $slider->image);
+                            $sliderLink = $slider->button_link ?? '#';
+                        @endphp
+                        
+                        <a href="{{ $sliderLink }}" class="hero-visual-link" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; cursor: pointer; display: block;">
+                            <span class="sr-only">{{ $slider->title }}</span>
+                        </a>
 
+                        <div class="hero-visual" style="position: relative; z-index: 1;">
                             @if($isImage)
                                 <img src="{{ asset('storage/' . $slider->image) }}" alt="{{ $slider->title }}" style="width: 100%; height: 100%; object-fit: cover;">
-                                @if($slider->button_text)
-                                    <div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 10;">
-                                        <a href="{{ $slider->button_link ?? '#' }}" class="btn btn-solid">{{ $slider->button_text }}</a>
-                                    </div>
-                                @endif
                             @else
                                 <!-- Dynamic Content Layout based on title or description if image is missing -->
                                 <div class="dashboard-mockup">
@@ -94,11 +94,6 @@
                                                 <h3 style="margin-bottom: 10px;">{{ $slider->title }}</h3>
                                                 <p>{{ $slider->description }}</p>
                                             </div>
-                                            @if($slider->button_text)
-                                                <div style="margin-top: 20px; text-align: center;">
-                                                    <a href="{{ $slider->button_link ?? '#' }}" class="btn btn-solid">{{ $slider->button_text }}</a>
-                                                </div>
-                                            @endif
                                         </div>
                                     </div>
                                 </div>
