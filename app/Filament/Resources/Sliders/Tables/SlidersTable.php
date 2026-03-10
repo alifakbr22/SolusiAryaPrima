@@ -19,8 +19,6 @@ class SlidersTable
                 TextColumn::make('title')
                     ->searchable(),
                 ImageColumn::make('image')->disk('public'),
-                TextColumn::make('button_text')
-                    ->searchable(),
                 TextColumn::make('button_link')
                     ->searchable(),
                 TextColumn::make('order')
