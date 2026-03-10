@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'CV Solusi Arya Prima - Solusi Pengadaan IT & Perkantoran')</title>
     
-    <link rel="icon" type="image/png" href="{{ asset('sap-favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('sap-favicon.png') }}?v={{ time() }}">
     <!-- Meta SEO -->
     <meta name="description" content="CV Solusi Arya Prima - Penyedia solusi teknologi informasi, komputer, meubelair, dan peralatan kantor terpercaya sejak 1988 di Semarang dan seluruh Indonesia.">
     <meta name="keywords" content="Solusi Arya Prima, Pengadaan IT, Komputer Semarang, E-Katalog LKPP, Meubelair Kantor, Software Digitalisasi">
