@@ -26,12 +26,14 @@ class SliderForm
                     ->required(),
                 TextInput::make('button_link')
                     ->default(null),
-                TextInput::make('order')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
-                Toggle::make('is_active')
-                    ->required(),
+                Filament\Forms\Components\Grid::make(1)->schema([
+                    TextInput::make('order')
+                        ->required()
+                        ->numeric()
+                        ->default(0),
+                    Toggle::make('is_active')
+                        ->required(),
+                ]),
             ]);
     }
 }
