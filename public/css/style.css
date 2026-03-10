@@ -1964,24 +1964,44 @@ h3 {
         display: none !important;
     }
 
-    /* Slider Mobile Smooth Fade Animation */
+    /* Native Horizontal Scroll Slider for Mobile */
+    .hero-slider {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+
+        /* Hide scrollbar */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        position: relative;
+    }
+
+    .hero-slider::-webkit-scrollbar {
+        display: none;
+    }
+
     .hero-slide {
-        transition: opacity 0.8s ease, transform 0.8s ease;
-        opacity: 0;
-        visibility: hidden;
-        transform: scale(0.98);
-        /* Start slightly smaller for subtle pop effect */
-    }
+        position: relative;
+        /* Override desktop absolute */
+        top: auto;
+        left: auto;
+        flex: 0 0 100%;
+        /* Force each slide to take full width */
+        width: 100%;
+        height: 100%;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
 
-    .hero-slide.active {
-        opacity: 1;
-        visibility: visible;
-        z-index: 2;
-        transform: scale(1);
-    }
-
-    .hero-slide:not(.active) {
-        transform: scale(0.98);
+        /* Reset all desktop animation states */
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        transition: none !important;
+        z-index: 1 !important;
     }
 }
 
