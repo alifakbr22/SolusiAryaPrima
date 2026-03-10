@@ -67,7 +67,7 @@
                     </div>
 
                     @forelse($sliders as $index => $slider)
-                    <div class="hero-slide {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}" style="position: relative;">
+                    <div class="hero-slide {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}">
                         @php
                             $isImage = $slider->image && preg_match('/\.(jpg|jpeg|png|webp|svg|gif)$/i', $slider->image);
                             $sliderLink = $slider->button_link ?? '#';
@@ -77,7 +77,7 @@
                             <span class="sr-only">{{ $slider->title }}</span>
                         </a>
 
-                        <div class="hero-visual" style="position: relative; z-index: 1;">
+                        <div class="hero-visual" style="position: relative; z-index: 1; width: 100%; height: 100%;">
                             @if($isImage)
                                 <img src="{{ asset('storage/' . $slider->image) }}" alt="{{ $slider->title }}" style="width: 100%; height: 100%; object-fit: cover;">
                             @else
