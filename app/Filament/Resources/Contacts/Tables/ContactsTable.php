@@ -23,6 +23,13 @@ class ContactsTable
                 TextColumn::make('whatsapp')
                     ->label('WhatsApp Number')
                     ->searchable(),
+                TextColumn::make('message')
+                    ->label('Message')
+                    ->searchable()
+                    ->limit(50)
+                    ->tooltip(function (TextColumn $column): ?string {
+                        return $column->getState();
+                    }),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
