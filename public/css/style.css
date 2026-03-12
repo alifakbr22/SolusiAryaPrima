@@ -623,11 +623,83 @@ h3 {
     padding: clamp(100px, 15vw, 180px) 0 clamp(60px, 10vw, 120px);
     position: relative;
     overflow: hidden;
+    background: #ffffff;
+}
+
+/* Layer 1: Advanced Vibrant Mesh Gradient */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: -150px;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(238, 46, 36, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(15, 23, 42, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 50% 10%, rgba(238, 46, 36, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 30% 90%, rgba(15, 23, 42, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 80% 10%, rgba(238, 46, 36, 0.03) 0%, transparent 40%);
+    filter: blur(100px);
+    animation: advancedMesh 25s ease-in-out infinite alternate;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Layer 2: Complex Circuit Board & Pulsing Nodes */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Rich Circuit Pattern - More Dense */
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10h30M90 10h30M0 110h30M90 110h30M60 0v20M60 100v20' stroke='%230f172a' stroke-opacity='0.1' stroke-width='1'/%3E%3Cpath d='M30 10l10 10M80 10l-10 10M30 110l10-10M80 110l-10-10' stroke='%23ee2e24' stroke-opacity='0.08' stroke-width='1'/%3E%3Ccircle cx='10' cy='10' r='1.5' fill='%23ee2e24' fill-opacity='0.15'/%3E%3Ccircle cx='110' cy='110' r='1.5' fill='%23ee2e24' fill-opacity='0.15'/%3E%3C/svg%3E"),
+        radial-gradient(circle at 50% 50%, rgba(238, 46, 36, 0.2) 2px, transparent 2px);
+    background-size: 180px 180px, 60px 60px;
+    animation: circuitSlide 100s linear infinite, nodePulse 3s ease-in-out infinite;
+    mask-image: radial-gradient(circle at center, black 50%, transparent 95%);
+    -webkit-mask-image: radial-gradient(circle at center, black 50%, transparent 95%);
+    opacity: 0.95;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Layer 3: Extra Glowing Nodes for "WOW" Factor */
+.hero > .container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at center, rgba(238, 46, 36, 0.1) 0%, transparent 70%);
+    background-size: 300px 300px;
+    background-repeat: no-repeat;
+    animation: glowFollow 15s infinite alternate;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes advancedMesh {
+    0% { transform: translate(0, 0) rotate(0deg) scale(1.1); }
+    33% { transform: translate(5%, 8%) rotate(5deg) scale(1.2); }
+    66% { transform: translate(-8%, 5%) rotate(-5deg) scale(1); }
+    100% { transform: translate(0, 0) rotate(0deg) scale(1.1); }
+}
+
+@keyframes circuitSlide {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: 1800px 1800px, 600px 600px; }
+}
+
+@keyframes nodePulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes glowFollow {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 50% 0%; }
 }
 
 .hero .container {
     position: relative;
-    z-index: 2;
+    z-index: 10; /* Ensure content stays ABOVE the background animations */
     text-align: center;
 }
 

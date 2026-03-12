@@ -40,6 +40,12 @@ class SettingForm
                                 TextInput::make('hero_badge'),
                                 TextInput::make('hero_title'),
                                 Textarea::make('hero_description')->columnSpanFull(),
+                                FileUpload::make('hero_bg')
+                                    ->image()
+                                    ->directory('settings')
+                                    ->label('Hero Background Image')
+                                    ->helperText('Jika diisi, gambar ini akan menggantikan animasi background hero.')
+                                    ->columnSpanFull(),
                             ])->columns(2),
                         Tab::make('Vision & Mission')
                             ->schema([

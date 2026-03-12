@@ -24,6 +24,7 @@ class Setting extends Model
         'hero_badge',
         'hero_title',
         'hero_description',
+        'hero_bg',
         'vision',
         'mission',
     ];
