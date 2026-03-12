@@ -21,7 +21,10 @@ class HomeController extends Controller
             ->limit(3)
             ->get();
 
-        return view('pages.home', compact('sliders', 'services', 'news'));
+        $testimonials = \App\Models\Testimonial::orderBy('sort_order')->get();
+        $stats = \App\Models\Stat::orderBy('sort_order')->get();
+
+        return view('pages.home', compact('sliders', 'services', 'news', 'testimonials', 'stats'));
     }
 
     public function storeContact(Request $request)

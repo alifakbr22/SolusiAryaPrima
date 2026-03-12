@@ -295,22 +295,29 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="container">
         <div class="bento-card" style="padding: 40px 30px; border-radius: 40px;">
             <div class="stats-grid fade-scroll">
-                <div class="stat-item">
-                    <h4>36+</h4>
-                    <p>Tahun Pengalaman</p>
-                </div>
-                <div class="stat-item" style="border-left: 1px solid var(--slate-100);">
-                    <h4>ISO</h4>
-                    <p>Kualitas Terjamin</p>
-                </div>
-                <div class="stat-item" style="border-left: 1px solid var(--slate-100);">
-                    <h4>6</h4>
-                    <p>Unit Bisnis</p>
-                </div>
-                <div class="stat-item" style="border-left: 1px solid var(--slate-100);">
-                    <h4>LKPP</h4>
-                    <p>E-Katalog LKPP</p>
-                </div>
+                @forelse($stats as $index => $stat)
+                    <div class="stat-item" {!! $index > 0 ? 'style="border-left: 1px solid var(--slate-100);"' : '' !!}>
+                        <h4>{{ $stat->value }}</h4>
+                        <p>{{ $stat->label }}</p>
+                    </div>
+                @empty
+                    <div class="stat-item">
+                        <h4>36+</h4>
+                        <p>Tahun Pengalaman</p>
+                    </div>
+                    <div class="stat-item" style="border-left: 1px solid var(--slate-100);">
+                        <h4>ISO</h4>
+                        <p>Kualitas Terjamin</p>
+                    </div>
+                    <div class="stat-item" style="border-left: 1px solid var(--slate-100);">
+                        <h4>6</h4>
+                        <p>Unit Bisnis</p>
+                    </div>
+                    <div class="stat-item" style="border-left: 1px solid var(--slate-100);">
+                        <h4>LKPP</h4>
+                        <p>E-Katalog LKPP</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>
@@ -384,22 +391,39 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
         <div class="bento-grid grid-2-cols" style="gap: 24px;">
-            <div class="bento-card fade-scroll" style="padding: 40px;">
-                <div style="color: var(--primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 24px;">{{ __('TESTIMONI #01') }}</div>
-                <p style="font-style: italic; color: var(--slate-600); line-height: 1.8; font-size: 1.1rem; margin-bottom: 32px;">"{{ __('CV Solusi Arya Prima memberikan layanan profesional tingkat tinggi. Solusi infrastrukturnya diterapkan dengan presisi dan ketepatan waktu yang luar biasa.') }}"</p>
-                <div>
-                    <h5 style="margin: 0;">{{ __('Badan KOMINFO Jawa Tengah') }}</h5>
-                    <small style="color: var(--primary); font-weight: 700;">{{ __('SEKTOR PEMERINTAH') }}</small>
+            @forelse($testimonials as $index => $testimonial)
+                <div class="bento-card fade-scroll" style="padding: 40px;">
+                    <div style="color: var(--primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 24px;">
+                        {{ __('TESTIMONI') }} #{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}
+                    </div>
+                    <p style="font-style: italic; color: var(--slate-600); line-height: 1.8; font-size: 1.1rem; margin-bottom: 32px;">
+                        "{{ $testimonial->content }}"
+                    </p>
+                    <div>
+                        <h5 style="margin: 0;">{{ $testimonial->client_name }}</h5>
+                        @if($testimonial->client_sector)
+                            <small style="color: var(--primary); font-weight: 700;">{{ strtoupper($testimonial->client_sector) }}</small>
+                        @endif
+                    </div>
                 </div>
-            </div>
-            <div class="bento-card fade-scroll" style="padding: 40px;">
-                <div style="color: var(--primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 24px;">{{ __('TESTIMONI #02') }}</div>
-                <p style="font-style: italic; color: var(--slate-600); line-height: 1.8; font-size: 1.1rem; margin-bottom: 32px;">"{{ __('Kolaborasi yang luar biasa dalam pengadaan TI untuk infrastruktur kampus kami. Responsif, teknis, dan sangat andal.') }}"</p>
-                <div>
-                    <h5 style="margin: 0;">{{ __('Universitas Diponegoro') }}</h5>
-                    <small style="color: var(--primary); font-weight: 700;">{{ __('SEKTOR PENDIDIKAN') }}</small>
+            @empty
+                <div class="bento-card fade-scroll" style="padding: 40px;">
+                    <div style="color: var(--primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 24px;">{{ __('TESTIMONI #01') }}</div>
+                    <p style="font-style: italic; color: var(--slate-600); line-height: 1.8; font-size: 1.1rem; margin-bottom: 32px;">"{{ __('CV Solusi Arya Prima memberikan layanan profesional tingkat tinggi. Solusi infrastrukturnya diterapkan dengan presisi dan ketepatan waktu yang luar biasa.') }}"</p>
+                    <div>
+                        <h5 style="margin: 0;">{{ __('Badan KOMINFO Jawa Tengah') }}</h5>
+                        <small style="color: var(--primary); font-weight: 700;">{{ __('SEKTOR PEMERINTAH') }}</small>
+                    </div>
                 </div>
-            </div>
+                <div class="bento-card fade-scroll" style="padding: 40px;">
+                    <div style="color: var(--primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 24px;">{{ __('TESTIMONI #02') }}</div>
+                    <p style="font-style: italic; color: var(--slate-600); line-height: 1.8; font-size: 1.1rem; margin-bottom: 32px;">"{{ __('Kolaborasi yang luar biasa dalam pengadaan TI untuk infrastruktur kampus kami. Responsif, teknis, dan sangat andal.') }}"</p>
+                    <div>
+                        <h5 style="margin: 0;">{{ __('Universitas Diponegoro') }}</h5>
+                        <small style="color: var(--primary); font-weight: 700;">{{ __('SEKTOR PENDIDIKAN') }}</small>
+                    </div>
+                </div>
+            @endforelse
         </div>
     </div>
 </section>
