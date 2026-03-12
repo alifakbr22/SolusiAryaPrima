@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     env:
       FTP_REMOTE_DIR: ./ # root login: /home/premmiereco/rab.premmiere.co.id
@@ -73,7 +75,6 @@ jobs:
             .env
             .htaccess
             index.php
-            .htaccsess
             database/seeders/**
             database/factories/**
             *.md
