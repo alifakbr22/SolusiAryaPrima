@@ -15,7 +15,7 @@
                         <a href="{{ $menu->url ?? '#' }}" class="nav-link {{ request()->is(trim($menu->url, '/')) ? 'active' : '' }}">
                             {{ __($menu->label) }} <span class="dropdown-icon">▾</span>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-grid">
                             @foreach($menu->children as $child)
                                 <li>
                                     <a href="{{ $child->url ?? '#' }}" class="dropdown-item {{ request()->is(trim($child->url, '/')) ? 'active' : '' }}">
