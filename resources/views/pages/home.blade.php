@@ -65,7 +65,7 @@
     </style>
     <div class="container">
         <div class="text-center" style="margin-bottom: 40px;">
-            <span class="badge" id="heroBadge">[DEBUG] {{ isset($siteSettings) && $siteSettings->hero_badge ? $siteSettings->hero_badge : '#SolusiTeknologiTerpadu' }}</span>
+            <span class="badge" id="heroBadge">{{ isset($siteSettings) && $siteSettings->hero_badge ? $siteSettings->hero_badge : '#SolusiTeknologiTerpadu' }}</span>
         </div>
         
         <div class="hero-split-content">
