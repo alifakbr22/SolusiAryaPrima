@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $sliders = \App\Models\Slider::where('is_active', true)
+        dd('DEBUG CONTROLLER HIT');
             ->orderBy('order')
             ->get();
             
