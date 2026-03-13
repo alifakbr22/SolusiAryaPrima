@@ -1,7 +1,6 @@
 <nav class="navbar">
     <div class="nav-wrapper">
         <a href="/" class="logo">
-            <span style="color: red; font-weight: bold; background: yellow; padding: 2px;">[NAV-EDIT]</span>
             @if(isset($siteSettings) && $siteSettings->logo)
                 <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="{{ $siteSettings->company_name ?? 'Solusi Arya Prima' }}" style="height: 40px; width: auto;">
             @else

@@ -38,31 +38,7 @@
 </style>
 
 <!-- HERO SECTION WITH ULTRA-HD FINAL CUSTOM BACKGROUND -->
-<section id="homepageHero" class="hero hero-split" style="background-image: url('{{ asset('images/hero-bg-final-hd.png') }}') !important; background-size: cover !important; background-position: center !important; position: relative !important;">
-    <style>
-        /* Force-hide ALL global hero decorative layers specifically for the homepage */
-        #homepageHero::before, 
-        #homepageHero::after, 
-        #homepageHero > .container::before {
-            display: none !important;
-            content: none !important;
-            opacity: 0 !important;
-            visibility: hidden !important;
-        }
-        
-        /* Ensure the background on the section itself is visible */
-        #homepageHero {
-            background-color: white !important;
-            z-index: 1 !important;
-        }
-
-        /* Optimize text contrast for HD background */
-        #homepageHero h1.text-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #ee2e24 100%) !important;
-            -webkit-background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-        }
-    </style>
+<section id="homepageHero" class="hero hero-split">
     <div class="container">
         <div class="text-center" style="margin-bottom: 40px;">
             <span class="badge" id="heroBadge">{{ isset($siteSettings) && $siteSettings->hero_badge ? $siteSettings->hero_badge : '#SolusiTeknologiTerpadu' }}</span>

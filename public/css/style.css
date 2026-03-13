@@ -2419,3 +2419,17 @@ textarea:focus-visible {
     white-space: nowrap;
     border-width: 0;
 }
+/* FINAL HERO HD OVERRIDE */
+#homepageHero {
+    background-image: url(../images/hero-bg-final-hd.png) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: white !important;
+}
+
+#homepageHero::before, #homepageHero::after, #homepageHero > .container::before {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+}
