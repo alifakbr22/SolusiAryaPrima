@@ -623,7 +623,13 @@ h3 {
     padding: clamp(100px, 15vw, 180px) 0 clamp(60px, 10vw, 120px);
     position: relative;
     overflow: hidden;
-    background: #ffffff;
+    background-color: #ffffff;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.85)),
+        url(../images/corporate-hero-bg.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax-like effect */
 }
 
 /* Layer 1: Optimized Vibrant Mesh Gradient */
