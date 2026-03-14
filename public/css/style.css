@@ -626,75 +626,74 @@ h3 {
     background: #ffffff;
 }
 
-/* Layer 1: Advanced Vibrant Mesh Gradient */
+/* Layer 1: Optimized Vibrant Mesh Gradient */
 .hero::before {
     content: '';
     position: absolute;
-    inset: -150px;
+    inset: -100px;
     background: 
-        radial-gradient(circle at 10% 20%, rgba(238, 46, 36, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(15, 23, 42, 0.06) 0%, transparent 40%),
-        radial-gradient(circle at 50% 10%, rgba(238, 46, 36, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 30% 90%, rgba(15, 23, 42, 0.04) 0%, transparent 40%),
-        radial-gradient(circle at 80% 10%, rgba(238, 46, 36, 0.03) 0%, transparent 40%);
-    filter: blur(100px);
-    animation: advancedMesh 25s ease-in-out infinite alternate;
+        radial-gradient(circle at 20% 30%, rgba(238, 46, 36, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(15, 23, 42, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(238, 46, 36, 0.04) 0%, transparent 60%);
+    filter: blur(80px);
+    animation: simpleMesh 20s ease-in-out infinite alternate;
     z-index: 1;
     pointer-events: none;
+    will-change: transform;
 }
 
-/* Layer 2: Complex Circuit Board & Pulsing Nodes */
+/* Layer 2: Ultra-Lightweight Technical Circuit Pattern - Floating */
 .hero::after {
     content: '';
     position: absolute;
-    inset: 0;
-    /* Rich Circuit Pattern - More Dense */
-    background-image: 
-        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10h30M90 10h30M0 110h30M90 110h30M60 0v20M60 100v20' stroke='%230f172a' stroke-opacity='0.1' stroke-width='1'/%3E%3Cpath d='M30 10l10 10M80 10l-10 10M30 110l10-10M80 110l-10-10' stroke='%23ee2e24' stroke-opacity='0.08' stroke-width='1'/%3E%3Ccircle cx='10' cy='10' r='1.5' fill='%23ee2e24' fill-opacity='0.15'/%3E%3Ccircle cx='110' cy='110' r='1.5' fill='%23ee2e24' fill-opacity='0.15'/%3E%3C/svg%3E"),
-        radial-gradient(circle at 50% 50%, rgba(238, 46, 36, 0.2) 2px, transparent 2px);
-    background-size: 180px 180px, 60px 60px;
-    animation: circuitSlide 100s linear infinite, nodePulse 3s ease-in-out infinite;
-    mask-image: radial-gradient(circle at center, black 50%, transparent 95%);
-    -webkit-mask-image: radial-gradient(circle at center, black 50%, transparent 95%);
-    opacity: 0.95;
+    inset: -20px;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10h10M50 10h10M0 50h10M50 50h10M30 0v10M30 50v10' stroke='%23ee2e24' stroke-opacity='0.1' stroke-width='1'/%3E%3Cpath d='M10 10l5 5M45 10l-5 5M10 50l5-5M45 50l-5-5' stroke='%230f172a' stroke-opacity='0.05' stroke-width='1'/%3E%3Ccircle cx='5' cy='5' r='1' fill='%23ee2e24' fill-opacity='0.1'/%3E%3C/svg%3E");
+    background-size: 120px 120px;
+    opacity: 0.8;
     z-index: 2;
     pointer-events: none;
+    animation: simpleShimmer 10s ease-in-out infinite alternate, circuitDrift 60s linear infinite;
+    will-change: opacity, transform;
 }
 
-/* Layer 3: Extra Glowing Nodes for "WOW" Factor */
+/* Layer 3: Dynamic Circular "Sinar Merah" - Sweeping Path */
 .hero > .container::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle at center, rgba(238, 46, 36, 0.1) 0%, transparent 70%);
-    background-size: 300px 300px;
-    background-repeat: no-repeat;
-    animation: glowFollow 15s infinite alternate;
+    width: 600px;
+    height: 600px;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(238, 46, 36, 0.18) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: glowSweep 15s ease-in-out infinite;
     z-index: 1;
     pointer-events: none;
+    will-change: transform;
 }
 
-@keyframes advancedMesh {
-    0% { transform: translate(0, 0) rotate(0deg) scale(1.1); }
-    33% { transform: translate(5%, 8%) rotate(5deg) scale(1.2); }
-    66% { transform: translate(-8%, 5%) rotate(-5deg) scale(1); }
-    100% { transform: translate(0, 0) rotate(0deg) scale(1.1); }
+@keyframes simpleMesh {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(2%, 2%) scale(1.05); }
 }
 
-@keyframes circuitSlide {
-    from { background-position: 0 0, 0 0; }
-    to { background-position: 1800px 1800px, 600px 600px; }
+@keyframes simpleShimmer {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.7; }
 }
 
-@keyframes nodePulse {
-    0%, 100% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
+@keyframes circuitDrift {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(120px, 120px); }
 }
 
-@keyframes glowFollow {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 50% 0%; }
+@keyframes glowSweep {
+    0% { transform: translate(-20%, -20%); }
+    25% { transform: translate(100%, -10%); }
+    50% { transform: translate(110%, 80%); }
+    75% { transform: translate(-10%, 90%); }
+    100% { transform: translate(-20%, -20%); }
 }
 
 .hero .container {
@@ -2419,17 +2418,4 @@ textarea:focus-visible {
     white-space: nowrap;
     border-width: 0;
 }
-/* FINAL HERO HD OVERRIDE */
-#homepageHero {
-    background-image: url(../images/hero-bg-final-hd.png) !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-color: white !important;
-}
 
-#homepageHero::before, #homepageHero::after, #homepageHero > .container::before {
-    display: none !important;
-    content: none !important;
-    opacity: 0 !important;
-}
