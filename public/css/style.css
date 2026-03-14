@@ -649,19 +649,7 @@ h3 {
     will-change: transform;
 }
 
-/* Layer 2: Ultra-Lightweight Technical Circuit Pattern - Floating */
-.hero::after {
-    content: '';
-    position: absolute;
-    inset: -20px;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10h10M50 10h10M0 50h10M50 50h10M30 0v10M30 50v10' stroke='%23ee2e24' stroke-opacity='0.1' stroke-width='1'/%3E%3Cpath d='M10 10l5 5M45 10l-5 5M10 50l5-5M45 50l-5-5' stroke='%230f172a' stroke-opacity='0.05' stroke-width='1'/%3E%3Ccircle cx='5' cy='5' r='1' fill='%23ee2e24' fill-opacity='0.1'/%3E%3C/svg%3E");
-    background-size: 120px 120px;
-    opacity: 0.8;
-    z-index: 2;
-    pointer-events: none;
-    animation: simpleShimmer 10s ease-in-out infinite alternate, circuitDrift 60s linear infinite;
-    will-change: opacity, transform;
-}
+/* Layer 2: Removed Circuit Pattern as requested */
 
 /* Layer 3: Dynamic Circular "Sinar Merah" - Sweeping Path */
 .hero > .container::before {
@@ -683,16 +671,6 @@ h3 {
 @keyframes simpleMesh {
     0% { transform: translate(0, 0) scale(1); }
     100% { transform: translate(2%, 2%) scale(1.05); }
-}
-
-@keyframes simpleShimmer {
-    0% { opacity: 0.3; }
-    100% { opacity: 0.7; }
-}
-
-@keyframes circuitDrift {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(120px, 120px); }
 }
 
 @keyframes glowSweep {
@@ -722,13 +700,13 @@ h3 {
 .hero-content::before {
     content: '';
     position: absolute;
-    inset: -100px -150px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 85%);
+    inset: -30px -50px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.4) 60%, transparent 90%);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    /* Mask creates the organic blending effect */
-    mask-image: radial-gradient(circle at 50% 50%, black 10%, transparent 85%);
-    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 10%, transparent 85%);
+    /* Mask creates the organic blending effect - Tightened */
+    mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 90%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 90%);
     z-index: -1;
     pointer-events: none;
 }
@@ -792,9 +770,9 @@ h3 {
 }
 
 .hero-split .hero-content::before {
-    inset: -100px -80px;
-    mask-image: radial-gradient(circle at 35% 50%, black 0%, transparent 90%);
-    -webkit-mask-image: radial-gradient(circle at 35% 50%, black 0%, transparent 90%);
+    inset: -30px -40px;
+    mask-image: radial-gradient(circle at 25% 50%, black 15%, transparent 95%);
+    -webkit-mask-image: radial-gradient(circle at 25% 50%, black 15%, transparent 95%);
 }
 
 /* HERO SLIDER */
@@ -1897,6 +1875,21 @@ h3 {
     .hero-split-content {
         padding: 0;
         gap: 30px;
+    }
+
+    /* Tighten Blur on Mobile to avoid slider & badge overlap */
+    .hero-content::before,
+    .hero-split .hero-content::before {
+        inset: -2px -20px -10px -20px; /* Very tight on top to avoid badge */
+        mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
+        -webkit-mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
+    }
+
+    /* Target the container of the badge specifically on mobile for more breathing room */
+    .hero .container > div.text-center {
+        margin-bottom: 25px !important;
+        position: relative;
+        z-index: 20; /* Keep badge on top of everything */
     }
 
     .hero-slider {
