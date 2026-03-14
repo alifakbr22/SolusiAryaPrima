@@ -625,10 +625,11 @@ h3 {
     overflow: hidden;
     background-color: #ffffff;
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.85)),
-        url(../images/corporate-hero-bg.png);
+        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.35)),
+        var(--hero-bg-url, url(../images/corporate-hero-bg.png));
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed; /* Parallax-like effect */
 }
 
@@ -714,6 +715,22 @@ h3 {
     position: relative;
     z-index: 5;
     text-align: center;
+    padding: 0; /* Remove fixed padding to allow organic blend */
+}
+
+/* Organic Blended Legibility Zone (No Box) */
+.hero-content::before {
+    content: '';
+    position: absolute;
+    inset: -100px -150px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 85%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    /* Mask creates the organic blending effect */
+    mask-image: radial-gradient(circle at 50% 50%, black 10%, transparent 85%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 10%, transparent 85%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .hero .badge {
@@ -724,15 +741,29 @@ h3 {
 .hero h1 {
     font-size: var(--h1-size);
     line-height: 1.1;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    text-shadow: none; /* Removed shadow that causes paleness */
+}
+
+.hero h1.text-gradient {
+    /* More saturated Deep Red to Slate gradient */
+    background: linear-gradient(135deg, #ff0000 0%, #1e293b 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Sharp glow only to define edges against bright spots */
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.4));
 }
 
 .hero p {
     font-size: clamp(1rem, 2.2vw, 1.15rem);
-    color: var(--slate-600);
+    color: #1e293b;
     margin-bottom: 36px;
     line-height: 1.6;
+    font-weight: 500;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
 }
 
 .hero-actions {
@@ -753,10 +784,17 @@ h3 {
 }
 
 .hero-split .hero-content {
-    flex: 1;
+    flex: 1.2;
     max-width: 100%;
     text-align: left;
     margin: 0;
+    padding: 20px 0;
+}
+
+.hero-split .hero-content::before {
+    inset: -100px -80px;
+    mask-image: radial-gradient(circle at 35% 50%, black 0%, transparent 90%);
+    -webkit-mask-image: radial-gradient(circle at 35% 50%, black 0%, transparent 90%);
 }
 
 /* HERO SLIDER */

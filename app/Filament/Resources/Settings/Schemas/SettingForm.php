@@ -21,7 +21,7 @@ class SettingForm
                             ->schema([
                                 TextInput::make('site_title')->required(),
                                 TextInput::make('company_name')->required(),
-                                FileUpload::make('logo')->image()->directory('settings')->columnSpanFull(),
+                                FileUpload::make('logo')->image()->disk('public')->directory('settings')->columnSpanFull(),
                                 Textarea::make('company_description')->columnSpanFull(),
                             ])->columns(2),
                         Tab::make('Contact & Social')
@@ -42,6 +42,7 @@ class SettingForm
                                 Textarea::make('hero_description')->columnSpanFull(),
                                 FileUpload::make('hero_bg')
                                     ->image()
+                                    ->disk('public')
                                     ->directory('settings')
                                     ->label('Hero Background Image')
                                     ->helperText('Jika diisi, gambar ini akan menggantikan animasi background hero.')

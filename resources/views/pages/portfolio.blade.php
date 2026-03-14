@@ -3,7 +3,7 @@
 @section('title', 'Portfolio & Pengalaman - CV Solusi Arya Prima')
 
 @section('content')
-<section class="hero">
+<section class="hero" style="{{ isset($siteSettings) && $siteSettings->hero_bg ? "--hero-bg-url: url('" . asset('storage/' . $siteSettings->hero_bg) . "');" : '' }}">
     <div class="container">
         <div class="hero-content fade-scroll text-center">
             <span class="badge">{{ __('REKAM JEJAK PROYEK') }}</span>

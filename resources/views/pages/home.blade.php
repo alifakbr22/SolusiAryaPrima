@@ -38,7 +38,7 @@
 </style>
 
 <!-- HERO SECTION WITH ULTRA-HD FINAL CUSTOM BACKGROUND -->
-<section id="homepageHero" class="hero hero-split">
+<section id="homepageHero" class="hero hero-split" style="{{ isset($siteSettings) && $siteSettings->hero_bg ? "--hero-bg-url: url('" . asset('storage/' . $siteSettings->hero_bg) . "');" : '' }}">
     <div class="container">
         <div class="text-center" style="margin-bottom: 40px;">
             <span class="badge" id="heroBadge">{{ isset($siteSettings) && $siteSettings->hero_badge ? $siteSettings->hero_badge : '#SolusiTeknologiTerpadu' }}</span>
