@@ -531,7 +531,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <section class="section" style="padding: 0 24px 40px;">
     <div class="bento-card red-box-animated" style="padding: 60px 40px; text-align: center; background: linear-gradient(135deg, var(--primary) 0%, #d32f2f 100%); border: none; border-radius: 40px; overflow: hidden; position: relative;">
         <div class="container" style="position: relative; z-index: 2;">
-            <div class="hero-content text-center fade-scroll">
+            <div class="cta-content-wrapper text-center fade-scroll">
                 <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 24px; color: white;">{{ __('Tingkatkan Kapabilitas Industri Anda') }}</h2>
                 <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto; font-size: 1.15rem;">{{ __('Bermitra dengan pelopor industri sejak 1988 untuk infrastruktur teknologi tingkat profesional.') }}</p>
                 <div class="hero-actions" style="margin-top: 48px; display: flex; gap: 20px; justify-content: center;">
@@ -540,9 +540,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         </div>
-        <!-- Decorative Circles -->
-        <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); filter: blur(40px); border-radius: 50%;"></div>
-        <div style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); filter: blur(40px); border-radius: 50%;"></div>
     </div>
 </section>
 
