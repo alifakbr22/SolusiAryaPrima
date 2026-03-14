@@ -1209,6 +1209,10 @@ h3 {
     max-width: 100%;
 }
 
+.red-box-animated .hero-actions {
+    justify-content: center;
+}
+
 .red-box-animated::before {
     content: '';
     position: absolute;
