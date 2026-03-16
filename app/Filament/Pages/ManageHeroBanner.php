@@ -20,7 +20,8 @@ class ManageHeroBanner extends Page implements HasSchemas
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
 
-    protected static string | UnitEnum | null $navigationGroup = 'Configuration';
+    // ✅ Perbaikan: urutan tipe harus UnitEnum|string|null
+    protected static UnitEnum|string|null $navigationGroup = 'Configuration';
 
     protected static ?string $navigationLabel = 'Ubah Banner Hero';
 
@@ -37,11 +38,11 @@ class ManageHeroBanner extends Page implements HasSchemas
     public function mount(): void
     {
         $setting = Setting::first();
-        
+
         if ($setting) {
             $this->data = $setting->toArray();
-        } else {
-            // Initialize with empty array if no setting exists
+        }
+        else {
             $this->data = [];
         }
     }
@@ -51,22 +52,22 @@ class ManageHeroBanner extends Page implements HasSchemas
         return $schema
             ->statePath('data')
             ->components([
-                TextInput::make('hero_badge')
-                    ->label('Hero Badge')
-                    ->placeholder('#SolusiTeknologiTerpadu'),
-                TextInput::make('hero_title')
-                    ->label('Hero Title'),
-                Textarea::make('hero_description')
-                    ->label('Hero Description')
-                    ->columnSpanFull(),
-                FileUpload::make('hero_bg')
-                    ->label('Hero Background Image')
-                    ->image()
-                    ->disk('public')
-                    ->directory('settings')
-                    ->helperText('Jika diisi, gambar ini akan menggantikan animasi background hero.')
-                    ->columnSpanFull(),
-            ])
+            TextInput::make('hero_badge')
+            ->label('Hero Badge')
+            ->placeholder('#SolusiTeknologiTerpadu'),
+            TextInput::make('hero_title')
+            ->label('Hero Title'),
+            Textarea::make('hero_description')
+            ->label('Hero Description')
+            ->columnSpanFull(),
+            FileUpload::make('hero_bg')
+            ->label('Hero Background Image')
+            ->image()
+            ->disk('public')
+            ->directory('settings')
+            ->helperText('Jika diisi, gambar ini akan menggantikan animasi background hero.')
+            ->columnSpanFull(),
+        ])
             ->columns(['lg' => 2]);
     }
 
@@ -74,8 +75,8 @@ class ManageHeroBanner extends Page implements HasSchemas
     {
         return [
             Action::make('save')
-                ->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
-                ->submit('save'),
+            ->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
+            ->submit('save'),
         ];
     }
 
@@ -83,11 +84,12 @@ class ManageHeroBanner extends Page implements HasSchemas
     {
         try {
             $data = $this->getSchema('hero')->getState();
-            
+
             $setting = Setting::first();
             if ($setting) {
                 $setting->update($data);
-            } else {
+            }
+            else {
                 Setting::create($data);
             }
 
@@ -95,7 +97,8 @@ class ManageHeroBanner extends Page implements HasSchemas
                 ->success()
                 ->title(__('filament-panels::resources/pages/edit-record.notifications.saved.title'))
                 ->send();
-        } catch (\Exception $exception) {
+        }
+        catch (\Exception $exception) {
             Notification::make()
                 ->danger()
                 ->title('Error saving changes')
