@@ -12,15 +12,17 @@ use Filament\Pages\Page;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Schema;
+use BackedEnum;
 use UnitEnum;
 
 class ManageHeroBanner extends Page implements HasSchemas
 {
     use InteractsWithSchemas;
 
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
+    // ✅ Perbaikan: urutan tipe sesuai parent Filament\Pages\Page
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-photo';
 
-    // ✅ Perbaikan: urutan tipe harus UnitEnum|string|null
+    // ✅ Perbaikan: urutan tipe sesuai parent
     protected static UnitEnum|string|null $navigationGroup = 'Configuration';
 
     protected static ?string $navigationLabel = 'Ubah Banner Hero';
