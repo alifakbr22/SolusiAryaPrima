@@ -11,9 +11,7 @@ use App\Models\Setting;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use UnitEnum;
 
 class SettingResource extends Resource
 {
@@ -21,11 +19,15 @@ class SettingResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-cog';
 
-    protected static string | UnitEnum | null $navigationGroup = 'Configuration';
-
+    // Hapus deklarasi $navigationGroup di sini, gunakan method override
     protected static ?string $navigationLabel = 'Company Profile';
 
     protected static ?string $recordTitleAttribute = 'site_title';
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Configuration';
+    }
 
     public static function canCreate(): bool
     {
@@ -44,9 +46,7 @@ class SettingResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
