@@ -26,7 +26,7 @@ class SliderForm
                     ->required(),
                 TextInput::make('button_link')
                     ->default(null),
-                Filament\Forms\Components\Grid::make(1)->schema([
+                Filament\Forms\Components\Grid::make(2)->schema([
                     TextInput::make('order')
                         ->required()
                         ->numeric()
