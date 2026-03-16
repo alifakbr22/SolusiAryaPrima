@@ -19,7 +19,7 @@ class ManageHeroBanner extends Page implements HasSchemas
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
 
-    protected static ?string $navigationGroup = 'Configuration';
+    protected static string|null $navigationGroup = 'Configuration';
 
     protected static ?string $navigationLabel = 'Ubah Banner Hero';
 
@@ -66,7 +66,7 @@ class ManageHeroBanner extends Page implements HasSchemas
                     ->helperText('Jika diisi, gambar ini akan menggantikan animasi background hero.')
                     ->columnSpanFull(),
             ])
-            ->columns(2);
+            ->columns(['lg' => 2]);
     }
 
     protected function getFormActions(): array
