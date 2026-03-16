@@ -7,7 +7,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
-use Laravel\Prompts\Grid;
+use Filament\Tables\Columns\Layout\Grid;
 
 class SliderForm
 {
