@@ -12,6 +12,7 @@ use Filament\Pages\Page;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Schema;
+use UnitEnum;
 
 class ManageHeroBanner extends Page implements HasSchemas
 {
@@ -19,7 +20,7 @@ class ManageHeroBanner extends Page implements HasSchemas
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
 
-    protected static string|null $navigationGroup = 'Configuration';
+    protected static string | UnitEnum | null $navigationGroup = 'Configuration';
 
     protected static ?string $navigationLabel = 'Ubah Banner Hero';
 
