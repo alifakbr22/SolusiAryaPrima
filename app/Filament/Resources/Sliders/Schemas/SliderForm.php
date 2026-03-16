@@ -7,7 +7,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
-use Filament\Tables\Columns\Layout\Grid;
 
 class SliderForm
 {
@@ -27,14 +26,14 @@ class SliderForm
             ->required(),
             TextInput::make('button_link')
             ->default(null),
-            Grid::make(2)->schema([
-                TextInput::make('order')
-                ->required()
-                ->numeric()
-                ->default(0),
-                Toggle::make('is_active')
-                ->required(),
-            ]),
+            // Filament\Forms\Components\Grid::make(2)->schema([
+            //     TextInput::make('order')
+            //         ->required()
+            //         ->numeric()
+            //         ->default(0),
+            //     Toggle::make('is_active')
+            //         ->required(),
+            // ]),
         ]);
     }
 }
