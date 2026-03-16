@@ -20,6 +20,8 @@ class SliderResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-photo';
 
+    protected static ?string $navigationGroup = 'Configuration';
+
     protected static ?string $recordTitleAttribute = 'title';
 
     public static function form(Schema $schema): Schema

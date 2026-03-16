@@ -20,6 +20,10 @@ class SettingResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-cog-6-tooth';
 
+    protected static ?string $navigationGroup = 'Configuration';
+
+    protected static ?string $navigationLabel = 'Company Profile';
+
     protected static ?string $recordTitleAttribute = 'site_title';
 
     public static function canCreate(): bool
