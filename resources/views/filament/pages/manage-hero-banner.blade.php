@@ -1,9 +1,9 @@
 <x-filament-panels::page>
     <form wire:submit="save">
-        {{ $this->getSchema('hero') }}
+        {{ $this->form }}
 
         <div class="mt-6">
-            <x-filament-panels::form.actions
+            <x-filament::actions
                 :actions="$this->getFormActions()"
             />
         </div>
