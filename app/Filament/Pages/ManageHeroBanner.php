@@ -7,23 +7,19 @@ use Filament\Actions\Action;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Forms\Contracts\HasForms;
+use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
-use Filament\Schemas\Contracts\HasSchemas;
-use Filament\Schemas\Concerns\InteractsWithSchemas;
-use Filament\Schemas\Schema;
-use BackedEnum;
-use UnitEnum;
 
-class ManageHeroBanner extends Page implements HasSchemas
+class ManageHeroBanner extends Page implements HasForms
 {
-    use InteractsWithSchemas;
+    use InteractsWithForms;
 
-    // ✅ Perbaikan: urutan tipe sesuai parent Filament\Pages\Page
-    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-photo';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
-    // ✅ Perbaikan: urutan tipe sesuai parent
-    protected static UnitEnum|string|null $navigationGroup = 'Configuration';
+    protected static ?string $navigationGroup = 'Configuration';
 
     protected static ?string $navigationLabel = 'Ubah Banner Hero';
 
@@ -49,11 +45,11 @@ class ManageHeroBanner extends Page implements HasSchemas
         }
     }
 
-    public function heroSchema(Schema $schema): Schema
+    public function form(Form $form): Form
     {
-        return $schema
+        return $form
             ->statePath('data')
-            ->components([
+            ->schema([
             TextInput::make('hero_badge')
             ->label('Hero Badge')
             ->placeholder('#SolusiTeknologiTerpadu'),
@@ -85,7 +81,7 @@ class ManageHeroBanner extends Page implements HasSchemas
     public function save(): void
     {
         try {
-            $data = $this->getSchema('hero')->getState();
+            $data = $this->form->getState();
 
             $setting = Setting::first();
             if ($setting) {
