@@ -60,33 +60,29 @@
         </div>
 
         <div class="bento-grid">
+            @forelse($testimonials as $index => $testimonial)
             <div class="bento-card fade-scroll" style="padding: 48px; position: relative; background: white; border-top: 4px solid var(--primary);">
                 <div style="font-size: 4rem; position: absolute; top: 20px; right: 40px; color: var(--primary); opacity: 0.1;">"</div>
                 <p style="font-style: italic; color: var(--slate-700); font-size: 1.15rem; line-height: 1.8; margin-bottom: 32px;">
-                    "{{ __('Solusi Arya Prima memberikan layanan profesional tingkat tinggi. Infrastruktur teknis yang disediakan sangat sesuai dengan kebutuhan operasional kami yang ketat.') }}"
+                    "{{ $testimonial->content }}"
                 </p>
                 <div style="display: flex; align-items: center; gap: 20px;">
-                    <div style="width: 44px; height: 44px; background: var(--primary-soft); border: 1px solid rgba(238, 46, 36, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: 800;">KJ</div>
+                    <div style="width: 44px; height: 44px; background: var(--primary-soft); border: 1px solid rgba(238, 46, 36, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: 800;">
+                        {{ strtoupper(substr($testimonial->client_name, 0, 2)) }}
+                    </div>
                     <div>
-                        <h5 style="margin-bottom: 4px;">{{ __('Direktur KOMINFO Jateng') }}</h5>
-                        <p style="font-size: 0.75rem; color: var(--primary); font-weight: 700; text-transform: uppercase;">{{ __('SEKTOR PEMERINTAH') }}</p>
+                        <h5 style="margin-bottom: 4px;">{{ $testimonial->client_name }}</h5>
+                        @if($testimonial->client_sector)
+                        <p style="font-size: 0.75rem; color: var(--primary); font-weight: 700; text-transform: uppercase;">{{ $testimonial->client_sector }}</p>
+                        @endif
                     </div>
                 </div>
             </div>
-
-            <div class="bento-card fade-scroll" style="padding: 48px; border-top: 4px solid var(--primary); background: white; position: relative;">
-                <div style="font-size: 4rem; position: absolute; top: 20px; right: 40px; color: var(--primary); opacity: 0.1;">"</div>
-                <p style="font-style: italic; color: var(--slate-700); font-size: 1.15rem; line-height: 1.8; margin-bottom: 32px;">
-                    "{{ __('Kolaborasi luar biasa untuk penerapan IT di kampus kami. Mereka sangat responsif dan fokus pada rekayasa solusi yang stabil dan inovatif.') }}"
-                </p>
-                <div style="display: flex; align-items: center; gap: 20px;">
-                    <div style="width: 44px; height: 44px; background: var(--primary-soft); border: 1px solid rgba(238, 46, 36, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: 800;">UD</div>
-                    <div>
-                        <h5 style="margin-bottom: 4px;">{{ __('Rektor Universitas Diponegoro') }}</h5>
-                        <p style="font-size: 0.75rem; color: var(--primary); font-weight: 700; text-transform: uppercase;">{{ __('SEKTOR PENDIDIKAN') }}</p>
-                    </div>
-                </div>
+            @empty
+            <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                <p style="color: var(--slate-600);">{{ __('Belum ada testimoni yang ditambahkan.') }}</p>
             </div>
+            @endforelse
         </div>
     </div>
 </section>
@@ -101,20 +97,27 @@
             </div>
 
             <div class="stats-grid">
-                @php
-                    $stats = [
-                        ['val' => '1.2jt+', 'label' => __('Unit Didistribusikan')],
-                        ['val' => '500+', 'label' => __('Institusi Aktif')],
-                        ['val' => '36', 'label' => __('Tahun Beroperasi')],
-                        ['val' => '100%', 'label' => __('Tingkat Kepatuhan')]
-                    ];
-                @endphp
-                @foreach($stats as $s)
+                @forelse($stats as $s)
                 <div class="text-center">
-                    <div style="font-size: 3rem; font-weight: 800; color: var(--slate-800); margin-bottom: 12px;">{{ $s['val'] }}</div>
-                    <p style="font-size: 0.8rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">{{ $s['label'] }}</p>
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--slate-800); margin-bottom: 12px;">{{ $s->value }}</div>
+                    <p style="font-size: 0.8rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">{{ $s->label }}</p>
                 </div>
-                @endforeach
+                @empty
+                    @php
+                        $fallbackStats = [
+                            ['val' => '1.2jt+', 'label' => __('Unit Didistribusikan')],
+                            ['val' => '500+', 'label' => __('Institusi Aktif')],
+                            ['val' => '36', 'label' => __('Tahun Beroperasi')],
+                            ['val' => '100%', 'label' => __('Tingkat Kepatuhan')]
+                        ];
+                    @endphp
+                    @foreach($fallbackStats as $s)
+                    <div class="text-center">
+                        <div style="font-size: 3rem; font-weight: 800; color: var(--slate-800); margin-bottom: 12px;">{{ $s['val'] }}</div>
+                        <p style="font-size: 0.8rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">{{ $s['label'] }}</p>
+                    </div>
+                    @endforeach
+                @endforelse
             </div>
         </div>
     </div>
