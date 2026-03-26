@@ -1216,28 +1216,27 @@ h3 {
 .red-box-animated::before {
     content: '';
     position: absolute;
-    top: -50%;
+    top: 0;
     left: -150%;
-    width: 60%;
-    height: 200%;
+    width: 150%;
+    height: 100%;
     background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.1) 30%,
-        rgba(255, 255, 255, 0.4) 50%,
-        rgba(255, 255, 255, 0.1) 70%,
-        rgba(255, 255, 255, 0) 100%
+        120deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.08) 42%,
+        rgba(255, 255, 255, 0.16) 50%,
+        rgba(255, 255, 255, 0.08) 58%,
+        rgba(255, 255, 255, 0) 70%
     );
-    transform: rotate(25deg);
-    animation: shiny-effect 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation: shiny-effect 7s infinite linear;
     z-index: 1;
     pointer-events: none;
 }
 
 @keyframes shiny-effect {
-    0% { transform: translateX(-150%) rotate(25deg); }
-    20% { transform: translateX(250%) rotate(25deg); }
-    100% { transform: translateX(250%) rotate(25deg); }
+    0% { left: -150%; }
+    30% { left: 150%; }
+    100% { left: 150%; }
 }
 
 .red-box-animated:hover {
@@ -1448,9 +1447,7 @@ h3 {
 }
 
 /* ============ HELPER: text-center-sm ============ */
-.text-center-sm {
-    /* applied via media queries below */
-}
+/* .text-center-sm applied via media queries */
 
 .align-center {
     align-items: center;
