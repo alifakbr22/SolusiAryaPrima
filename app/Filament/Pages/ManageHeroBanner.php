@@ -19,9 +19,9 @@ class ManageHeroBanner extends Page implements HasForms
 {
     use InteractsWithForms;
 
-    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-photo';
+    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-photo';
 
-    protected static string | UnitEnum | null $navigationGroup = 'Configuration';
+    protected static \UnitEnum|string|null $navigationGroup = 'Configuration';
 
     protected static ?string $navigationLabel = 'Ubah Banner Hero';
 
@@ -29,7 +29,7 @@ class ManageHeroBanner extends Page implements HasForms
 
     protected static ?string $slug = 'manage-hero-banner';
 
-    protected static string $view = 'filament.pages.manage-hero-banner';
+    protected string $view = 'filament.pages.manage-hero-banner';
 
     protected static ?int $navigationSort = -10;
 
