@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Models\Setting;
+use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
@@ -12,14 +13,15 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
+use UnitEnum;
 
 class ManageHeroBanner extends Page implements HasForms
 {
     use InteractsWithForms;
 
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-photo';
 
-    protected static ?string $navigationGroup = 'Configuration';
+    protected static string | UnitEnum | null $navigationGroup = 'Configuration';
 
     protected static ?string $navigationLabel = 'Ubah Banner Hero';
 
